@@ -13,37 +13,41 @@ class Area
 {
     /**
      * 国家/海外
+     *
      * @var string
      */
     public $nation = '';
-    
+
     /**
      * 省/洲
+     *
      * @var string
      */
     public $lv1 = '';
-    
+
     /**
      * 城市/海外国家
+     *
      * @var string
      */
     public $lv2 = '';
-    
+
     /**
      * 区、县
+     *
      * @var string
      */
     public $lv3 = '';
-    
+
     public function getContinent($nation): string
     {
         $oversea = $this->getOversea();
         return $oversea[$nation] ?? '';
     }
-    
+
     /**
      * @return string
-     * @todo 数组中有相同的键会覆盖前者
+     * @todo   数组中有相同的键会覆盖前者
      */
     public function getOversea(): array
     {

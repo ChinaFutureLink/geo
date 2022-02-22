@@ -1,4 +1,5 @@
 <?php
+
 namespace Fu\Geo;
 
 /**
@@ -15,7 +16,7 @@ class GeoCoder implements IAreaDecoder
      * @var double
      */
     protected $lng;
-    
+
     /**
      * @param float $lat
      * @param float $lng
@@ -33,7 +34,9 @@ class GeoCoder implements IAreaDecoder
     public function getArea(IService $service): Area
     {
         $area = new Area();
-        if ($this->invalid()) return $area;
+        if ($this->invalid()) {
+            return $area;
+        }
         $address = $service->getLocationByCoordinate($this->lat, $this->lng);
         if ($address['nation']) {
             if ($address['nation'] === '中国') {
@@ -50,17 +53,22 @@ class GeoCoder implements IAreaDecoder
         }
         return $area;
     }
-    
+
     /**
      * skip invalid latitude or longitude
      * @return bool
      */
     protected function invalid(): bool
     {
-        if ($this->lat == 0   && $this->lng == 0)  return true;
-        if ($this->lat < -85  || $this->lat > 85)  return true;
-        if ($this->lng < -180 || $this->lng > 180) return true;
+        if ($this->lat == 0   && $this->lng == 0) {
+            return true;
+        }
+        if ($this->lat < -85  || $this->lat > 85) {
+            return true;
+        }
+        if ($this->lng < -180 || $this->lng > 180) {
+            return true;
+        }
         return false;
     }
 }
-

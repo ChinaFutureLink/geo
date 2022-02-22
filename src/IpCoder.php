@@ -1,4 +1,5 @@
 <?php
+
 namespace Fu\Geo;
 
 class IpCoder implements IAreaDecoder
@@ -7,7 +8,7 @@ class IpCoder implements IAreaDecoder
      * @var string
      */
     protected $ip;
-    
+
     /**
      * @param string $ip
      */
@@ -17,13 +18,15 @@ class IpCoder implements IAreaDecoder
     }
 
     /**
-     * @param IService $service
+     * @param  IService $service
      * @return Area
      */
     public function getArea(IService $service): Area
     {
         $area = new Area();
-        if ($this->invalid()) return $area;
+        if ($this->invalid()) {
+            return $area;
+        }
         $address = $service->getLocationByIp($this->ip);
         if ($address['nation'] === '中国') {
             $area->nation = $address['nation'];
@@ -38,9 +41,10 @@ class IpCoder implements IAreaDecoder
         }
         return $area;
     }
-    
+
     /**
      * skip private ip
+     *
      * @return bool
      */
     protected function invalid(): bool
@@ -49,4 +53,3 @@ class IpCoder implements IAreaDecoder
         return preg_match($pattern, $this->ip) > 0;
     }
 }
-
