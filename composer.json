@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "guzzlehttp/guzzle": "~6.0",
         "kevinrob/guzzle-cache-middleware": "^3.4",
         "doctrine/cache": "1.12.*",
