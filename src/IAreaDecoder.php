@@ -1,4 +1,5 @@
 <?php
+
 namespace Fu\Geo;
 
 /**
@@ -8,7 +9,8 @@ interface IAreaDecoder
 {
     /**
      * 得到解析后的地址
-     * @param IService $service
+     *
+     * @param  IService $service
      * @return Area
      */
     public function getArea(IService $service): Area;
