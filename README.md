@@ -1,3 +1,6 @@
+![CircleCI](https://img.shields.io/circleci/build/github/ChinaFutureLink/geo?token=ee171180870495cfee063b82e5884041441e8e5a)
+
+
 ChinaFutureLink/GEO
 ====
 
