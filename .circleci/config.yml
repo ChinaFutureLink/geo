@@ -45,6 +45,10 @@ jobs:
             - ./vendor
 
       # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit --bootstrap=bootstrap.php tests
       - run: ./vendor/bin/phpcs --version
       - run: ./vendor/bin/phpcs --standard=PSR12 ./src
+      - run:
+          name: "Run tests"
+          command: phpdbg -qrr vendor/bin/phpunit --bootstrap=bootstrap.php --coverage-html build/coverage-report tests
+            - store_artifacts:
+                path: build/coverage-report
