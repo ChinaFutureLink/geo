@@ -56,4 +56,4 @@ jobs:
       - store_artifacts:
           path: coverage
       - codecov/upload:
-          file: coverage
+          file: clover.xml

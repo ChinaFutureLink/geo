@@ -52,3 +52,4 @@ Thumbs.db
 /vendor/
 .phpunit.cache/
 /coverage/
+clover.xml
