@@ -14,6 +14,9 @@ use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
+/**
+ * 腾讯地理位置服务
+ */
 class TencentGeoService implements IService
 {
     /**
