@@ -18,7 +18,7 @@ class GeoCoderTest extends TestCase
         $stub = $this->createStub(TencentGeoService::class);
         $stub->method('getLocationByCoordinate')
             ->willReturn(new Collection([
-                'nation' => '中国1',
+                'nation' => '中国',
                 'province' => '西藏自治区',
                 'city' => '拉萨市',
                 'district' => '堆龙德庆区',
