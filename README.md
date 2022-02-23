@@ -68,15 +68,21 @@ A TOTAL OF 35 ERRORS WERE FIXED IN 6 FILES
 
 Time: 559ms; Memory: 12MB
 
-> ./vendor/bin/phpunit --boostrap=bootstrap.php tests
+> vendor/bin/phpunit 
 
 PHPUnit 9.5.14 by Sebastian Bergmann and contributors.
 
+Runtime:       PHP 7.4.27 with PCOV 1.0.9
+Configuration: /data/phpunit.xml
+
 ..........                                                        10 / 10 (100%)
 
-Time: 00:00.010, Memory: 6.00 MB
+Time: 00:00.015, Memory: 8.00 MB
 
 OK (10 tests, 46 assertions)
+
+Generating code coverage report in HTML format ... done [00:00.020]
+
 ```
 
 ## Features
