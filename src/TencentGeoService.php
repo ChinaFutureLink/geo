@@ -33,7 +33,7 @@ class TencentGeoService implements IService
     {
         $this->key = $key;
         $log = new Logger('geo');
-        $log->pushHandler(new StreamHandler('/var/log/fu/geo.log', Logger::DEBUG));
+        $log->pushHandler(new StreamHandler('/tmp/geo.log', Logger::DEBUG));
         $stack = HandlerStack::create();
         $stack->push(
             new CacheMiddleware(
