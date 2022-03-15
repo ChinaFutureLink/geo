@@ -46,6 +46,22 @@ class Area
     }
 
     /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return array_values(get_object_vars($this));
+    }
+
+    /**
+     * @return array
+     */
+    public function toJson(): array
+    {
+        return get_object_vars($this);
+    }
+
+    /**
      * @return string
      * @todo   数组中有相同的键会覆盖前者
      */
