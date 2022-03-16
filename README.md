@@ -8,81 +8,30 @@ ChinaFutureLink/GEO
 
 ## Installing / Getting started
 
+通过Composer安装
+
+```
+composer require fu/geo 2.*
+```
+
 将下面的代码加入composer.json
 ```json
 {
     "require": {
-    	"fu/geo": "dev-master"
-    },
-    "repositories":[{
-        "type": "vcs",
-        "url": "git@bitbucket.org:china_future_link/fu-geo.git"
-    }]
+    	"fu/geo": "2.*"
+    }
 }
-```
-然后运行（确保ssh Key已经部署到了bitbucket.org的相关仓库）：
-
-```shell
-> git clone git@github.com:ChinaFutureLink/geo.git
-> composer install -v
 ```
 
 ## Developing
 
 ### Building
 ```bash
-> ./vendor/bin/phpcs --standard=PSR12 ./src
-
-FILE: /data/src/GeoCoder.php
--------------------------------------------------------------------------
-FOUND 9 ERRORS AFFECTING 9 LINES
--------------------------------------------------------------------------
-  1 | ERROR | [x] Header blocks must be separated by a single blank line
-  5 | ERROR | [x] Header blocks must be separated by a single blank line
- 22 | ERROR | [x] Whitespace found at end of line
- 40 | ERROR | [x] Inline control structures are not allowed
- 57 | ERROR | [x] Whitespace found at end of line
- 64 | ERROR | [x] Inline control structures are not allowed
- 65 | ERROR | [x] Inline control structures are not allowed
- 66 | ERROR | [x] Inline control structures are not allowed
- 69 | ERROR | [x] Expected 1 blank line at end of file; 2 found
--------------------------------------------------------------------------
-PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
--------------------------------------------------------------------------
-
-> ./vendor/bin/phpcbf --standard=PSR12 ./src
-
-PHPCBF RESULT SUMMARY
-----------------------------------------------------------------------
-FILE                                                  FIXED  REMAINING
-----------------------------------------------------------------------
-/data/src/IAreaDecoder.php                            2      0
-/data/src/Area.php                                    6      0
-/data/src/TencentGeoService.php                       10     0
-/data/src/IService.php                                3      0
-/data/src/IpCoder.php                                 5      0
-/data/src/GeoCoder.php                                9      0
-----------------------------------------------------------------------
-A TOTAL OF 35 ERRORS WERE FIXED IN 6 FILES
-----------------------------------------------------------------------
-
-Time: 559ms; Memory: 12MB
-
+> vendor/bin/phpcs --standard=PSR12 src
+> vendor/bin/phpcbf --standard=PSR12 src
 > vendor/bin/phpunit 
 
-PHPUnit 9.5.14 by Sebastian Bergmann and contributors.
-
-Runtime:       PHP 7.4.27 with PCOV 1.0.9
-Configuration: /data/phpunit.xml
-
-..........                                                        10 / 10 (100%)
-
-Time: 00:00.015, Memory: 8.00 MB
-
-OK (10 tests, 46 assertions)
-
 Generating code coverage report in HTML format ... done [00:00.020]
-
 ```
 
 ## Features
@@ -91,21 +40,26 @@ Generating code coverage report in HTML format ... done [00:00.020]
 include "./vendor/autoload.php";
 
 use Fu\Geo\GeoCoder;
-use Fu\Geo\TencentGeoService;
+use Fu\Geo\Service\Coordinary\TencentCoordinaryLocationService;
 
 const KEY = "YOUR-TENCENT-GEO-SERVICE-KEY";
 
 $latitude  = 29.60001;
 $longitude = 91.00001;
 
-$service = new TencentGeoService(KEY);
-$coder = new GeoCoder($latitude, $longitude);
-$area = $coder->getArea($service);
+$service = new TencentCoordinaryLocationService(KEY);
+$response = $service->getLocation($latitude, $longitude);
 
-$area->nation; // 中国
-$area->lv1;    // 西藏自治区
-$area->lv2;    // 拉萨市
-$area->lv3;    // 堆龙德庆区
+if ($response->isOk()) {
+    $area = $response->getArea();
+    $area->nation; // 中国
+    $area->lv1;    // 西藏自治区
+    $area->lv2;    // 拉萨市
+    $area->lv3;    // 堆龙德庆区
+} else {
+    // get the response raw data...
+    var_dump($response->getRaw());   
+}
 ```
 
 ### 根据IP地址查询地理位置信息
@@ -113,25 +67,56 @@ $area->lv3;    // 堆龙德庆区
 include "./vendor/autoload.php";
 
 use Fu\Geo\IpCoder;
-use Fu\Geo\TencentGeoService;
+use Fu\Geo\Service\Ip\TencentIpLocationService;
 
 const KEY = "YOUR-TENCENT-GEO-SERVICE-KEY";
 
 $ip = '171.221.208.34';
+$service = new TencentIpLocationService(KEY);
+$response = $service->getLocation($ip);
 
-$service = new TencentGeoService(KEY);
-$coder = new IpCoder($ip);
-$area = $coder->getArea($service);
+if ($response->isOk()) {
+    $area = $response->getArea()
+    $area->nation; // 中国
+    $area->lv1;    // 四川省
+    $area->lv2;    // 成都市
+    $area->lv3;    // 温江区
+} else {
+    // get the response raw data...
+    var_dump($response->getRaw());
+}
+```
 
-$area->nation; // 中国
-$area->lv1;    // 四川省
-$area->lv2;    // 成都市
-$area->lv3;    // 温江区
+### 根据手机号码查询地理位置信息
+```php
+include "./vendor/autoload.php";
+
+use Fu\Geo\IpCoder;
+use Fu\Geo\Service\Phone\AliPhoneLocationService;
+
+const KEY = "YOUR-ALI-SERVICE-KEY";
+
+$areaCode = '86';
+$phone = '13880799123';
+$service = new AliPhoneLocationService(KEY);
+$response = $service->getLocation($areaCode, $phone);
+
+if ($response->isOk()) {
+    $area = $response->getArea()
+    $area->nation; // 中国
+    $area->lv1;    // 四川省
+    $area->lv2;    // 成都市
+    $area->lv3;    // 温江区
+} else {
+    // get the response raw data...
+    var_dump($response->getRaw());
+}
 ```
 
 ## Links
 
 * 腾讯地理位置服务：https://lbs.qq.com
+* 阿里云市场[手机归属地查询服务](https://market.aliyun.com/products/57126001/cmapi00035993.html?spm=5176.730005.result.2.508935247c8qJv&innerSource=search_%E6%89%8B%E6%9C%BA%E5%BD%92%E5%B1%9E%E5%9C%B0_%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%BD%92%E5%B1%9E%E5%9C%B0%E6%9F%A5%E8%AF%A2_%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%9F%A5%E8%AF%A2%E8%BF%90%E8%90%A5%E5%95%86%20-%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%BD%92%E5%B1%9E%E5%9C%B0%E7%B2%BE%E5%87%86%E6%9F%A5%E8%AF%A2API%E6%8E%A5%E5%8F%A3%E3%80%90%E6%94%AF%E6%8C%81%E4%B8%89%E7%BD%91%E5%92%8C%E8%99%9A%E5%95%86%E3%80%91#sku=yuncode2999300001) 
 
 ## Licensing
 
