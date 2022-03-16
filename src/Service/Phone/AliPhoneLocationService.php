@@ -8,8 +8,7 @@ use Fu\Geo\Responsable;
 use Fu\Geo\Service\AliLocationService;
 use Fu\Geo\Service\ServiceResponse;
 
-class AliPhoneLocationService extends AliLocationService
-    implements PhoneLocationService
+class AliPhoneLocationService extends AliLocationService implements PhoneLocationService
 {
     /**
      * @param string $areaCode

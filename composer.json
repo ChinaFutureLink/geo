@@ -1,6 +1,6 @@
 {
     "name": "chinafuturelink/geo",
-    "description": "GEO Services of FutureLink",
+    "description": "Location Services of FutureLink",
     "type": "library",
     "license": "MIT",
     "autoload": {

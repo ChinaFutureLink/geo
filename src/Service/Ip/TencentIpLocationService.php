@@ -11,8 +11,7 @@ use Fu\Geo\Service\TencentLocationService;
 /**
  * 腾讯地理位置服务
  */
-class TencentIpLocationService extends TencentLocationService
-    implements IpLocationService
+class TencentIpLocationService extends TencentLocationService implements IpLocationService
 {
     /**
      * 根据IP地址查询所在地信息

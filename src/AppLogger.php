@@ -14,7 +14,7 @@ class AppLogger
     {
         $log = new Logger('geo');
 //        $log->pushHandler(new StreamHandler('/tmp/geo.log', Logger::DEBUG));
-        $log->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
+        $log->pushHandler(new StreamHandler('php://stderr', Logger::ERROR));
         return $log;
     }
 }

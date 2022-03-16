@@ -2,8 +2,6 @@
 
 namespace Fu\Geo;
 
-use baohan\Collection\Collection;
-
 interface Responsable
 {
     /**

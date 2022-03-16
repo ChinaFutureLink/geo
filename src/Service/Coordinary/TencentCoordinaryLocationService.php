@@ -11,8 +11,7 @@ use Fu\Geo\Service\TencentLocationService;
 /**
  * 腾讯地理位置服务
  */
-class TencentCoordinaryLocationService extends TencentLocationService
-    implements CoordinaryLocationService
+class TencentCoordinaryLocationService extends TencentLocationService implements CoordinaryLocationService
 {
     /**
      * 根据经纬度查询所在地信息
