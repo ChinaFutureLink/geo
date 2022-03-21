@@ -53,3 +53,5 @@ Thumbs.db
 .phpunit.cache/
 /coverage/
 clover.xml
+example.php
+example2.php
