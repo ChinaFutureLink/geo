@@ -50,11 +50,11 @@ class Area
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function toJson(): array
+    public function toJson(): ?array
     {
-        return get_object_vars($this);
+        return $this->nation ? get_object_vars($this) : null;
     }
 
     /**
