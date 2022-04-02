@@ -17,8 +17,15 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
      */
     public function getLocation(string $areaCode, string $phone): Responsable
     {
+        $countries = [
+            '886' => '台湾',
+            '852' => '香港',
+            '853' => '澳门'
+        ];
         if ($areaCode == '86') {
             return $this->getLocationByChinesePhoneNumber($phone);
+        } elseif (array_key_exists($areaCode, $countries)) {
+            return $this->getCustomerLocation($countries[$areaCode]);
         } else {
             return $this->getLocationByOverseaPhoneNumber($areaCode);
         }
@@ -39,6 +46,17 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
             $response->area->lv1 = Area::getContinent($country);
             $response->area->lv2 = $country;
         }
+        return $response;
+    }
+
+    public function getCustomerLocation($country)
+    {
+        $response = new ServiceResponse();
+        $response->ok = true;
+        $response->area = new Area();
+        $response->area->nation = "中国";
+        $response->area->lv1 = $country;
+        $response->area->lv2 = $country;
         return $response;
     }
 
