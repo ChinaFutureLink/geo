@@ -2,7 +2,7 @@
 
 namespace Fu\Geo\Service\Ip;
 
-use Fu\Geo\Responsable;
+use Fu\Geo\AreaResponsable;
 
 interface IpLocationService
 {
@@ -10,7 +10,7 @@ interface IpLocationService
      * 根据IP地址查询所在地信息
      *
      * @param string $ip
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocation(string $ip): Responsable;
+    public function getLocation(string $ip): AreaResponsable;
 }

@@ -2,7 +2,7 @@
 
 namespace Fu\Geo\Data\Regional;
 
-class Service
+class District
 {
     /**
      * @var array

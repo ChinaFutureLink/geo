@@ -4,6 +4,7 @@ namespace Fu\Geo\Service\Ip;
 
 use baohan\Collection\Collection;
 use Fu\Geo\Area;
+use Fu\Geo\AreaResponsable;
 use Fu\Geo\Responsable;
 use Fu\Geo\Service\ServiceResponse;
 use Fu\Geo\Service\TencentLocationService;
@@ -34,9 +35,9 @@ class TencentIpLocationService extends TencentLocationService implements IpLocat
      *     }
      * }
      * @param string $ip
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocation(string $ip): Responsable
+    public function getLocation(string $ip): AreaResponsable
     {
         $response = new ServiceResponse();
         if ($this->invalid($ip)) {

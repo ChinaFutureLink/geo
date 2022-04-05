@@ -8,12 +8,10 @@ interface Responsable
      * @return bool
      */
     public function isOk(): bool;
-
     /**
-     * @return Area
+     * @return string
      */
-    public function getArea(): Area;
-
+    public function getMessage(): string;
     /**
      * @return string
      */

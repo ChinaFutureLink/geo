@@ -13,24 +13,28 @@ class Items implements Iterator
     /**
      * @var Item[]
      */
-    protected array $items = [];
+    protected array $caches = [];
     /**
      * @var int
      */
     protected int $index = 0;
-    /**
-     * @var string
-     */
-    protected string $class = Item::class;
 
-    public function __construct(array $array, string $class)
+    public function __construct(array $array)
     {
         $this->array = $array;
         $this->index = 0;
-        $this->class = $class;
-        foreach ($this as $item) {
-            $this->items[$item->getId()] = $item;
+    }
+
+    /**
+     * @param int $index
+     * @return Item
+     */
+    public function getItem(int $index): Item
+    {
+        if (!isset($this->caches[$index])) {
+            $this->caches[$index] = new Item($this->array[$index]);
         }
+        return $this->caches[$index];
     }
 
     /**
@@ -38,8 +42,7 @@ class Items implements Iterator
      */
     public function current()
     {
-        $class = $this->class;
-        return new $class($this->array[$this->index]);
+        return $this->getItem($this->index);
     }
 
     /**
@@ -87,6 +90,21 @@ class Items implements Iterator
     }
 
     /**
+     * @param int $start
+     * @param int $end
+     * @return Item[]
+     */
+    public function slice(int $start, int $end): array
+    {
+        $array = [];
+        for ($i = $start; $i < $end; $i++) {
+            $item = $this->getItem($i);
+            $array[] = $item;
+        }
+        return $array;
+    }
+
+    /**
      * @param RegionalItem $region
      * @return string
      */
@@ -98,42 +116,5 @@ class Items implements Iterator
             }
         }
         return "";
-    }
-
-    /**
-     * @param Item $parent
-     * @return Item[]
-     */
-    public function prefixMatch(Item $parent): array
-    {
-        $arr = [];
-        foreach ($this->items as $item) {
-            if (substr($item->getId(), 0, strlen($parent->getPrefix())) === $parent->getPrefix()) {
-                $arr[] = $item;
-            }
-        }
-        return $arr;
-    }
-
-    /**
-     * @param int $start
-     * @param int $end
-     * @return Item[]
-     */
-    public function slice(int $start, int $end): array
-    {
-        var_dump('start='.$start);
-        var_dump('end='.$end);
-        $this->index = $start;
-        $array = [];
-        foreach ($this as $item) {
-//            $array[] = $item;
-            if ($this->index === $end) {
-                var_dump('index === end'. $this->index);
-                break;
-            }
-        }
-        $this->rewind();
-        return $array;
     }
 }

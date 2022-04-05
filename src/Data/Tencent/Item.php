@@ -84,14 +84,6 @@ class Item implements \JsonSerializable
     }
 
     /**
-     * @return string
-     */
-    public function getPrefix(): string
-    {
-        return $this->id;
-    }
-
-    /**
      * @return array
      */
     public function getAlias(): array
