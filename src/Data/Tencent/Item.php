@@ -2,6 +2,8 @@
 
 namespace Fu\Geo\Data\Tencent;
 
+use Fu\Geo\Component\Collection;
+
 class Item implements \JsonSerializable
 {
     /**
@@ -50,10 +52,11 @@ class Item implements \JsonSerializable
     protected array $children = [];
 
     /**
-     * @param array $object
+     * @param array $data
      */
-    public function __construct(array $object)
+    public function __construct(array $data)
     {
+        $object          = new Collection($data);
         $this->id        = $object['id'];
         $this->name      = $object['fullname'];
         $this->alias     = array_unique([
