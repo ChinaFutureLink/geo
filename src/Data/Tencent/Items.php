@@ -97,7 +97,7 @@ class Items implements Iterator
     public function slice(int $start, int $end): array
     {
         $array = [];
-        for ($i = $start; $i < $end; $i++) {
+        for ($i = $start; $i <= $end; $i++) {
             $item = $this->getItem($i);
             $array[] = $item;
         }
