@@ -45,7 +45,7 @@ class LocationResponse extends ServiceResponse implements LocationResponsable
             return "";
         }
         $replace = ['County', 'Township', 'City', 'District'];
-        $names = explode(' ', $name);
+        $names = explode(' ', explode(',', $name)[0]);
         return implode(
             ' ',
             array_filter($names, function($val) use ($replace) {
