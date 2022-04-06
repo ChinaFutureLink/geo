@@ -2,6 +2,7 @@
 
 namespace Fu\Geo\Data\Regional;
 
+use Closure;
 use Fu\Geo\Service\Address\AddressLocationService;
 
 class Item
@@ -26,6 +27,11 @@ class Item
      * @var Item[]
      */
     protected array $children = [];
+
+    /**
+     * @var Closure|null
+     */
+    protected ?Closure $callback = null;
 
     /**
      * @return string
@@ -107,7 +113,7 @@ class Item
      * @param array|null $array
      * @return array
      */
-    public function toArray(?array $children = null, ?array &$array = []): array
+    public function toArray(?array $children = null, ?array &$array = [], ?string $parent = ""): array
     {
         if (!$children) {
             $children = $this->getChildren();
@@ -118,24 +124,43 @@ class Item
         foreach ($children as $idx => $child) {
             $grandson = $child->getChildren();
             $array[$idx] = [];
+            $array[$idx]['label'] = $child->getLabel();
+            $array[$idx]['value'] = $child->getValue();
+            $array[$idx]['fullname'] = $parent.$child->getValue();
+            if ($this->callback) {
+                $callback = $this->callback;
+                $callback($array[$idx]);
+            }
             if ($grandson) {
-                $array[$idx]['label'] = $child->getLabel();
-                $array[$idx]['value'] = $child->getValue();
-                $array[$idx]['children'] = $this->toArray($grandson, $array[$idx]['children']);
-            } else {
-                $array[$idx]['label'] = $child->getLabel();
-                $array[$idx]['value'] = $child->getValue();
+                $array[$idx]['children'] = $this->toArray($grandson, $array[$idx]['children'], $parent.$child->getValue());
             }
         }
         return $array;
     }
 
     /**
+     * @param Closure|null $closure
+     * @return $this
+     */
+    public function setArrayHandle(Closure $closure = null): Item
+    {
+        $this->callback = $closure;
+        return $this;
+    }
+
+    /**
      * @param array|null $children
      * @param array|null $array
+     * @param string|null $parent
+     * @param Closure|null $closure
      * @return array
      */
-    public function toNames(?array $children = null, ?array &$array = [], ?string $parent = ""): array
+    public function toNames(
+        ?array $children = null,
+        ?array &$array = [],
+        ?string $parent = "",
+        ?Closure $closure = null
+    ): array
     {
         if (!$children) {
             $children = $this->getChildren();
@@ -149,10 +174,10 @@ class Item
         foreach ($children as $child) {
             $grandson = $child->getChildren();
             if ($grandson) {
-                $array[] = ['zh' => $parent.$child->getValue()];
+                $array[] = ['zh' => $parent.$child->getValue(), 'key' => $child->getValue()];
                 $this->toNames($grandson, $array, $parent.$child->getValue());
             } else {
-                $array[] = ['zh' => $parent.$child->getValue()];
+                $array[] = ['zh' => $parent.$child->getValue(), 'key' => $child->getValue()];
             }
         }
         return $array;

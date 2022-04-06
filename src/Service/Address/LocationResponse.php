@@ -23,6 +23,7 @@ class LocationResponse extends ServiceResponse implements LocationResponsable
     {
         $this->locationName = $this->trim(
             $json['results'][0]['address_components'][0]['long_name']
+                ??$json['results'][0]['formatted_address']
         );
     }
 
@@ -35,11 +36,14 @@ class LocationResponse extends ServiceResponse implements LocationResponsable
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return string
      */
-    protected function trim(string $name): string
+    protected function trim(?string $name): string
     {
+        if (!$name) {
+            return "";
+        }
         $replace = ['County', 'Township', 'City', 'District'];
         $names = explode(' ', $name);
         return implode(
