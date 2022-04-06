@@ -131,6 +131,31 @@ class Item
     }
 
     /**
+     * @param array|null $children
+     * @param array|null $array
+     * @return array
+     */
+    public function toNames(?array $children = null, ?array &$array = []): array
+    {
+        if (!$children) {
+            $children = $this->getChildren();
+        }
+        if ($array === null) {
+            $array = [];
+        }
+        foreach ($children as $child) {
+            $grandson = $child->getChildren();
+            if ($grandson) {
+                $array[] = ['zh' => $child->getValue()];
+                $this->toNames($grandson, $array);
+            } else {
+                $array[] = ['zh' => $child->getValue()];
+            }
+        }
+        return $array;
+    }
+
+    /**
      * @return string
      */
     public function toJson(): string

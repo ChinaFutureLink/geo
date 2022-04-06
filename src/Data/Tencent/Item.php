@@ -147,7 +147,7 @@ class Item implements \JsonSerializable
      */
     public function setChildren(Items $items): void
     {
-        if ($this->start > 0) {
+        if ($this->start >= 0 && $this->end > 0) {
             $this->children = $items->slice($this->start, $this->end);
         }
     }
