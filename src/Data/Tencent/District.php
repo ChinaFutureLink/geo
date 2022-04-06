@@ -4,7 +4,8 @@ namespace Fu\Geo\Data\Tencent;
 
 use Exception;
 use Fu\Geo\Data\Regional;
-use Fu\Geo\Service\ChinaRegional\DistrictService;
+use Fu\Geo\Service\Address\AddressLocationService;
+use Fu\Geo\Service\District\DistrictService;
 
 class District
 {
@@ -34,9 +35,9 @@ class District
     protected function __construct(array $json)
     {
         $this->version   = $json['data_version'];
-        $this->provinces = new Items($json['result'][0], Item::class);
-        $this->cities    = new Items($json['result'][1], Item::class);
-        $this->regions   = new Items($json['result'][2], Item::class);
+        $this->provinces = new Items($json['result'][0]);
+        $this->cities    = new Items($json['result'][1]);
+        $this->regions   = new Items($json['result'][2]);
     }
 
     /**
@@ -92,38 +93,73 @@ class District
     }
 
     /**
-     * @param array $array
      * @return string
      */
-    public function toJson(array $array = []): string
+    public function toJson(): string
     {
-        if ($array) {
-            $array = $this->toArray();
-        }
-        return json_encode($array);
+        return json_encode($this->toArray());
     }
 
     /**
      * 输出在线regional格式的数据
-     * @example ./data/regional_zh.json
+     * @return Regional\District
+     * @throws Exception
      * @example ./data/regional_en.json
-     * @return array
+     * @example ./data/regional_zh.json
      */
-    public function toRegional(): array
+    public function toRegional(): Regional\District
     {
-        $regional = new Regional\District($this);
-        return $regional->toArray();
+        $lv1s = [];
+        foreach ($this->provinces as $province) {
+            $lv1 = new Regional\Item();
+            $lv1->setLabel($province->getName());
+            $lv1->setValue($province->getName());
+            $province->setChildren($this->cities);
+            $lv2s = [];
+            foreach ($province->getChildren() as $city) {
+                $lv2 = new Regional\Item();
+                $lv2->setLabel($city->getName());
+                $lv2->setValue($city->getName());
+                $city->setChildren($this->regions);
+                $lv3s = [];
+                foreach ($city->getChildren() as $region) {
+                    $lv3 = new Regional\Item();
+                    $lv3->setLabel($region->getName());
+                    $lv3->setValue($region->getName());
+                    $lv3s[] = $lv3;
+                }
+                $lv2->setChildren($lv3s);
+                $lv2s[] = $lv2;
+            }
+            $lv1->setChildren($lv2s);
+            $lv1s[] = $lv1;
+        }
+        $item = new Regional\Item();
+        $item->setLabel('中国');
+        $item->setValue('中国');
+        $item->setChildren($lv1s);
+
+        $district = Regional\District::getInstanceFromJson('./data/regional_zh.json');
+        $district->setChina($item);
+        return $district;
     }
 
     /**
-     * @param string $filename
+     * @return string
+     */
+    protected function getJsonFilename(): string
+    {
+        $version = $this->version ?? strftime('%Y%m%d');
+        return "tencent.china.regions.{$version}.json";
+    }
+
+    /**
+     * @param string $dirname
      * @return void
      */
-    public function saveJsonFile(string $filename = "")
+    public function saveJsonFile(string $dirname)
     {
-        if (!$filename) {
-            $filename = "tencent.china.regions.{$this->version}.json";
-        }
+        $filename = rtrim($dirname, '/') . "/" . $this->getJsonFilename();
         $fp = fopen($filename, 'wb');
         fwrite($fp, $this->toJson());
         fclose($fp);

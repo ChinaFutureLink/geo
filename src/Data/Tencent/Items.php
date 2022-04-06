@@ -117,4 +117,12 @@ class Items implements Iterator
         }
         return "";
     }
+
+    /**
+     * @return array
+     */
+    public function getRaw(): array
+    {
+        return $this->array;
+    }
 }

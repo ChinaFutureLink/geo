@@ -1,6 +1,6 @@
 <?php
 
-namespace Fu\Geo\Service\ChinaRegional;
+namespace Fu\Geo\Service\District;
 
 use Fu\Geo\Responsable;
 

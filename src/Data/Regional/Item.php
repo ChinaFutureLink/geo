@@ -2,111 +2,161 @@
 
 namespace Fu\Geo\Data\Regional;
 
+use Fu\Geo\Service\Address\AddressLocationService;
+
 class Item
 {
     /**
-     * @var string|mixed
+     * @var string
      */
     protected string $label;
 
     /**
-     * @var string|mixed
+     * @var string
      */
     protected string $value;
 
     /**
-     * @var string|mixed
+     * 英语名称
+     * @var string
      */
-    protected string $id = "";
+    protected string $english;
 
     /**
-     * @var array|mixed
+     * @var Item[]
      */
     protected array $children = [];
 
     /**
-     * @var bool
+     * @return string
      */
-    protected bool $delete = false;
-
-    /**
-     * @param array $object
-     */
-    public function __construct(array $object)
-    {
-        $this->label = $object['label'];
-        $this->value = $object['value'];
-        $this->children = $object['children'] ?? [];
-    }
-
-    /**
-     * @return mixed|string
-     */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->label;
     }
 
     /**
-     * @return mixed|string
+     * @param string $label
      */
-    public function getValue()
+    public function setLabel(string $label): void
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
     {
         return $this->value;
     }
 
     /**
-     * @return Items|null
+     * @param string $value
      */
-    public function getChildren(): ?Items
+    public function setValue(string $value): void
     {
-        if ($this->children) {
-            return new Items($this->children);
-        }
-        return null;
+        $this->value = $value;
     }
 
     /**
-     * @param Items|null $children
+     * @return Item[]
+     */
+    public function getChildren(): array
+    {
+        return $this->children??[];
+    }
+
+    /**
+     * @param Item[] $children
+     */
+    public function setChildren(array $children): void
+    {
+        $this->children = $children;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnglish(): string
+    {
+        return $this->english;
+    }
+
+    /**
+     * @param string $english
+     */
+    public function setEnglish(string $english): void
+    {
+        $this->english = $english;
+    }
+
+    /**
+     * @param AddressLocationService $service
+     * @return string
+     */
+    public function setEnglishByService(AddressLocationService $service): string
+    {
+        $res = $service->getLocation($this->getValue());
+        $this->english = $res->getLocationName();
+        return $this->english;
+    }
+
+    /**
+     * @param Item[] $children
      * @param array|null $array
      * @return array
      */
-    public function toArray(?Items $children = null, ?array &$array = []): array
+    public function toArray(?array $children = null, ?array &$array = []): array
     {
-        if ($this->delete === true) {
-            return [];
-        }
         if (!$children) {
             $children = $this->getChildren();
         }
         if ($array === null) {
             $array = [];
         }
-        foreach ($children as $child) {
+        foreach ($children as $idx => $child) {
             $grandson = $child->getChildren();
+            $array[$idx] = [];
             if ($grandson) {
-                $array[$child->getLabel()] = $this->toArray($grandson, $array[$child->getLabel()]);
+                $array[$idx]['label'] = $child->getLabel();
+                $array[$idx]['value'] = $child->getValue();
+                $array[$idx]['children'] = $this->toArray($grandson, $array[$idx]['children']);
             } else {
-                $array[$child->getLabel()] = $child->getValue();
+                $array[$idx]['label'] = $child->getLabel();
+                $array[$idx]['value'] = $child->getValue();
             }
         }
         return $array;
     }
 
     /**
-     * @param string $id
-     * @return void
+     * @return string
      */
-    public function setId(string $id)
+    public function toJson(): string
     {
-        $this->id = $id;
+        return json_encode($this->toArray());
     }
 
     /**
-     * @return void
+     * @return string
      */
-    public function remove()
+    protected function getJsonFilename(): string
     {
-        $this->delete = true;
+        $version = strftime('%Y%m%d');
+        return "regional.regions.{$version}.json";
+    }
+
+    /**
+     * @param string $dirname
+     * @return string saved filename
+     */
+    public function saveJsonFile(string $dirname): string
+    {
+        $filename = rtrim($dirname, '/') . "/" . $this->getJsonFilename();
+        $fp = fopen($filename, 'wb');
+        fwrite($fp, $this->toJson());
+        fclose($fp);
+        return $filename;
     }
 }

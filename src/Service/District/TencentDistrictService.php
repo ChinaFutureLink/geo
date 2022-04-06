@@ -1,9 +1,7 @@
 <?php
 
-namespace Fu\Geo\Service\ChinaRegional;
+namespace Fu\Geo\Service\District;
 
-use baohan\Collection\Collection;
-use Fu\Geo\Area;
 use Fu\Geo\Responsable;
 use Fu\Geo\Service\ServiceResponse;
 use Fu\Geo\Service\TencentLocationService;

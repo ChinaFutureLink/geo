@@ -155,6 +155,7 @@ class Item implements \JsonSerializable
     public function jsonSerialize()
     {
         $vars = get_object_vars($this);
+        $vars['children'] = [];
         foreach ($this->getChildren() as $child) {
             $vars['children'][] = $child->jsonSerialize();
         }
