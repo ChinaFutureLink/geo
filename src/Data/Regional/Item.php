@@ -135,7 +135,7 @@ class Item
      * @param array|null $array
      * @return array
      */
-    public function toNames(?array $children = null, ?array &$array = []): array
+    public function toNames(?array $children = null, ?array &$array = [], ?string $parent = ""): array
     {
         if (!$children) {
             $children = $this->getChildren();
@@ -143,13 +143,16 @@ class Item
         if ($array === null) {
             $array = [];
         }
+        if ($parent === null) {
+            $parent = "";
+        }
         foreach ($children as $child) {
             $grandson = $child->getChildren();
             if ($grandson) {
-                $array[] = ['zh' => $child->getValue()];
-                $this->toNames($grandson, $array);
+                $array[] = ['zh' => $parent.$child->getValue()];
+                $this->toNames($grandson, $array, $parent.$child->getValue());
             } else {
-                $array[] = ['zh' => $child->getValue()];
+                $array[] = ['zh' => $parent.$child->getValue()];
             }
         }
         return $array;
