@@ -133,6 +133,7 @@ class District
         }
         $item = new Regional\Item();
         $item->setValue('中国');
+        $item->setFullname('中国');
         $item->setEnglish('China');
         $item->setChildren($lv1s);
         return $item;

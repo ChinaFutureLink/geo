@@ -17,6 +17,16 @@ class District
     protected Item $oversea;
 
     /**
+     * @var bool
+     */
+    protected bool $original = false;
+
+    /**
+     * @var string
+     */
+    protected string $language = 'zh';
+
+    /**
      * initial regional district
      */
     public function __construct()
@@ -68,11 +78,37 @@ class District
         return $this->oversea;
     }
 
+    /**
+     * @param bool $original
+     * @return $this
+     */
+    public function original(bool $original): District
+    {
+        $this->original = $original;
+        return $this;
+    }
+
+    /**
+     * @param string $language
+     * @return $this
+     */
+    public function language(string $language): District
+    {
+        $this->language = $language;
+        return $this;
+    }
+
     public function toArray(): array
     {
         return [
-            $this->getChina()->toArray(),
-            $this->getOversea()->toArray(),
+            $this->getChina()
+                ->language($this->language)
+                ->original($this->original)
+                ->toArray(),
+            $this->getOversea()
+                ->language($this->language)
+                ->original($this->original)
+                ->toArray(),
         ];
     }
 

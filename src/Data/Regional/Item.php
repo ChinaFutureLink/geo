@@ -17,7 +17,7 @@ class Item
      * 英语名称
      * @var string
      */
-    protected string $english;
+    protected string $english = "";
 
     /**
      * 完整名称
@@ -270,9 +270,8 @@ class Item
      * @param string $dirname
      * @return string saved filename
      */
-    public function saveJsonFile(string $dirname): string
+    public function saveJsonFile(string $filename): string
     {
-        $filename = rtrim($dirname, '/') . "/" . $this->getJsonFilename();
         $fp = fopen($filename, 'wb');
         fwrite($fp, $this->toJson());
         fclose($fp);
