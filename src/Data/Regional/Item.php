@@ -57,7 +57,10 @@ class Item
             throw new Exception(json_last_error_msg(), 4001);
         }
         $instance = new static();
-        $instance->setChildren($instance->buildByJson($json));
+        $instance->setValue($json['value']);
+        $instance->setFullname($json['fullname']);
+        $instance->setEnglish($json['english']);
+        $instance->setChildren($instance->buildByJson($json['children']));
         return $instance;
     }
 
@@ -205,12 +208,12 @@ class Item
             $array = [
                 'label' => $this->language == 'en' ? $this->getEnglish() : $this->getValue(),
                 'value' => $this->getValue(),
-                'children' => []
             ];
             if ($this->original === false) {
                 $array['fullname'] = $this->getFullname();
                 $array['english']  = $this->getEnglish();
             }
+            $array['children'] = [];
             $array['children'] = $this->toArray($children, $array['children'], $parent);
         } else {
             foreach ($children as $idx => $child) {
