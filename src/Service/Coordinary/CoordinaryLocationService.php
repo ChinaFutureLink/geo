@@ -2,7 +2,7 @@
 
 namespace Fu\Geo\Service\Coordinary;
 
-use Fu\Geo\Responsable;
+use Fu\Geo\AreaResponsable;
 
 interface CoordinaryLocationService
 {
@@ -11,7 +11,7 @@ interface CoordinaryLocationService
      *
      * @param float $latitude
      * @param float $longitude
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocation(float $latitude, float $longitude): Responsable;
+    public function getLocation(float $latitude, float $longitude): AreaResponsable;
 }

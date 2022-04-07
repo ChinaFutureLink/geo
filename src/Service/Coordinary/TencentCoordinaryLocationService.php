@@ -4,6 +4,7 @@ namespace Fu\Geo\Service\Coordinary;
 
 use baohan\Collection\Collection;
 use Fu\Geo\Area;
+use Fu\Geo\AreaResponsable;
 use Fu\Geo\Responsable;
 use Fu\Geo\Service\ServiceResponse;
 use Fu\Geo\Service\TencentLocationService;
@@ -77,9 +78,9 @@ class TencentCoordinaryLocationService extends TencentLocationService implements
      * }
      * @param float $latitude
      * @param float $longitude
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocation(float $latitude, float $longitude): Responsable
+    public function getLocation(float $latitude, float $longitude): AreaResponsable
     {
         $response = new ServiceResponse();
         if ($this->invalid($latitude, $longitude)) {

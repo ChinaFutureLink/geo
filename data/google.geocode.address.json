@@ -1,0 +1,58 @@
+{
+    "results": [
+        {
+            "address_components": [
+                {
+                    "long_name": "Changhua County",
+                    "short_name": "Changhua County",
+                    "types": [
+                        "administrative_area_level_2",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Taiwan",
+                    "short_name": "TW",
+                    "types": [
+                        "country",
+                        "political"
+                    ]
+                }
+            ],
+            "formatted_address": "Changhua County, Taiwan",
+            "geometry": {
+                "bounds": {
+                    "northeast": {
+                        "lat": 24.1982565,
+                        "lng": 120.6839483
+                    },
+                    "southwest": {
+                        "lat": 23.7856174,
+                        "lng": 120.2423574
+                    }
+                },
+                "location": {
+                    "lat": 24.0517963,
+                    "lng": 120.5161352
+                },
+                "location_type": "APPROXIMATE",
+                "viewport": {
+                    "northeast": {
+                        "lat": 24.1982565,
+                        "lng": 120.6839483
+                    },
+                    "southwest": {
+                        "lat": 23.7856174,
+                        "lng": 120.2423574
+                    }
+                }
+            },
+            "place_id": "ChIJdRR5tR5JaTQRJ380ulhL6NY",
+            "types": [
+                "administrative_area_level_2",
+                "political"
+            ]
+        }
+    ],
+    "status": "OK"
+}

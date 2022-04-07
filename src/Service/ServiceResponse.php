@@ -3,14 +3,20 @@
 namespace Fu\Geo\Service;
 
 use Fu\Geo\Area;
-use Fu\Geo\Responsable;
+use Fu\Geo\AreaResponsable;
 
-class ServiceResponse implements Responsable
+class ServiceResponse implements AreaResponsable
 {
     /**
      * @var bool
      */
     public bool $ok = false;
+
+    /**
+     * Response raw data
+     * @var string
+     */
+    public string $message = "";
 
     /**
      * Response raw data
@@ -36,11 +42,25 @@ class ServiceResponse implements Responsable
         return $this->ok;
     }
 
+    /**
+     * @return string
+     */
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+
+    /**
+     * @return Area
+     */
     public function getArea(): Area
     {
         return $this->area;
     }
 
+    /**
+     * @return string
+     */
     public function getRaw(): string
     {
         return $this->raw;

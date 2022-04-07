@@ -4,6 +4,7 @@ namespace Fu\Geo\Service\Phone;
 
 use baohan\Collection\Collection;
 use Fu\Geo\Area;
+use Fu\Geo\AreaResponsable;
 use Fu\Geo\Responsable;
 use Fu\Geo\Service\AliLocationService;
 use Fu\Geo\Service\ServiceResponse;
@@ -13,9 +14,9 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
     /**
      * @param string $areaCode
      * @param string $phone
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocation(string $areaCode, string $phone): Responsable
+    public function getLocation(string $areaCode, string $phone): AreaResponsable
     {
         $countries = [
             '886' => '台湾',
@@ -33,9 +34,9 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
 
     /**
      * @param string $areaCode
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocationByOverseaPhoneNumber(string $areaCode): Responsable
+    public function getLocationByOverseaPhoneNumber(string $areaCode): AreaResponsable
     {
         $response = new ServiceResponse();
         $country = Area::getCountryByAreaCode((int) $areaCode);
@@ -77,9 +78,9 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
      *   string(15) "查询成功！"
      * }
      * @param string $phone
-     * @return Responsable
+     * @return AreaResponsable
      */
-    public function getLocationByChinesePhoneNumber(string $phone): Responsable
+    public function getLocationByChinesePhoneNumber(string $phone): AreaResponsable
     {
         $response = new ServiceResponse();
         $res = $this->getClient()->post('/gsd?mobile=' . $phone, []);
