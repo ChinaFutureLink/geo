@@ -24,6 +24,13 @@ class Item
     protected string $english;
 
     /**
+     * 完整名称
+     * @example 台湾省高雄市新兴区
+     * @var string
+     */
+    protected string $fullname;
+
+    /**
      * @var Item[]
      */
     protected array $children = [];
@@ -98,6 +105,22 @@ class Item
     }
 
     /**
+     * @return string
+     */
+    public function getFullname(): string
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * @param string $fullname
+     */
+    public function setFullname(string $fullname): void
+    {
+        $this->fullname = $fullname;
+    }
+
+    /**
      * @param AddressLocationService $service
      * @return string
      */
@@ -146,41 +169,6 @@ class Item
     {
         $this->callback = $closure;
         return $this;
-    }
-
-    /**
-     * @param array|null $children
-     * @param array|null $array
-     * @param string|null $parent
-     * @param Closure|null $closure
-     * @return array
-     */
-    public function toNames(
-        ?array $children = null,
-        ?array &$array = [],
-        ?string $parent = "",
-        ?Closure $closure = null
-    ): array
-    {
-        if (!$children) {
-            $children = $this->getChildren();
-        }
-        if ($array === null) {
-            $array = [];
-        }
-        if ($parent === null) {
-            $parent = "";
-        }
-        foreach ($children as $child) {
-            $grandson = $child->getChildren();
-            if ($grandson) {
-                $array[] = ['zh' => $parent.$child->getValue(), 'key' => $child->getValue()];
-                $this->toNames($grandson, $array, $parent.$child->getValue());
-            } else {
-                $array[] = ['zh' => $parent.$child->getValue(), 'key' => $child->getValue()];
-            }
-        }
-        return $array;
     }
 
     /**

@@ -40,11 +40,13 @@ class District
         $instance->china = new Item();
         $instance->china->setLabel('中国');
         $instance->china->setValue('中国');
+        $instance->china->setEnglish('China');
         $instance->china->setChildren($instance->buildByJson($json[0]['children']));
 
         $instance->oversea = new Item();
         $instance->oversea->setLabel('海外');
         $instance->oversea->setValue('海外');
+        $instance->oversea->setEnglish('Oversea');
         $instance->oversea->setChildren($instance->buildByJson($json[1]['children']));
 
         return $instance;
@@ -61,6 +63,9 @@ class District
             $item = new Item();
             $item->setLabel($doc['label']);
             $item->setValue($doc['value']);
+            if (isset($doc['english'])) {
+                $item->setEnglish($doc['english']);
+            }
             if (isset($doc['children'])) {
                 $children[$idx] = [];
                 $item->setChildren($this->buildByJson($doc['children'], $children[$idx]));
