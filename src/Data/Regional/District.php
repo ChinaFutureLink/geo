@@ -16,63 +16,20 @@ class District
      */
     protected Item $oversea;
 
-    protected function __construct()
-    {
-    }
-
     /**
-     * @param string $filepath
-     * @return District
-     * @throws Exception
+     * initial regional district
      */
-    public static function getInstanceFromJson(string $filepath): District
+    public function __construct()
     {
-        $content = file_get_contents($filepath);
-        if (!$content) {
-            throw new Exception("The filepath is invalid: `{$filepath}`", 4000);
-        }
-        $json = json_decode($content, true);
-        if (json_last_error()) {
-            throw new Exception(json_last_error_msg(), 4001);
-        }
-        $instance = new static();
+        $this->oversea = new Item();
+        $this->oversea->setEnglish('Oversea');
+        $this->oversea->setValue('海外');
+        $this->oversea->setFullname('海外');
 
-        $instance->china = new Item();
-        $instance->china->setLabel('中国');
-        $instance->china->setValue('中国');
-        $instance->china->setEnglish('China');
-        $instance->china->setChildren($instance->buildByJson($json[0]['children']));
-
-        $instance->oversea = new Item();
-        $instance->oversea->setLabel('海外');
-        $instance->oversea->setValue('海外');
-        $instance->oversea->setEnglish('Oversea');
-        $instance->oversea->setChildren($instance->buildByJson($json[1]['children']));
-
-        return $instance;
-    }
-
-    /**
-     * @param array $json
-     * @param array $children
-     * @return Item[]
-     */
-    protected function buildByJson(array $json, array &$children = []): array
-    {
-        foreach ($json as $idx => $doc) {
-            $item = new Item();
-            $item->setLabel($doc['label']);
-            $item->setValue($doc['value']);
-            if (isset($doc['english'])) {
-                $item->setEnglish($doc['english']);
-            }
-            if (isset($doc['children'])) {
-                $children[$idx] = [];
-                $item->setChildren($this->buildByJson($doc['children'], $children[$idx]));
-            }
-            $children[$idx] = $item;
-        }
-        return $children;
+        $this->china = new Item();
+        $this->china->setEnglish('China');
+        $this->china->setValue('中国');
+        $this->china->setFullname('中国');
     }
 
     /**
@@ -85,10 +42,12 @@ class District
 
     /**
      * @param Item $china
+     * @return Item
      */
-    public function setChina(Item $china): void
+    public function setChina(Item $china): Item
     {
-        $this->china = $china;
+        $this->china->setChildren($china->getChildren());
+        return $this->china;
     }
 
     /**
@@ -101,10 +60,12 @@ class District
 
     /**
      * @param Item $oversea
+     * @return Item
      */
-    public function setOversea(Item $oversea): void
+    public function setOversea(Item $oversea): Item
     {
-        $this->oversea = $oversea;
+        $this->oversea->setChildren($oversea->getChildren());
+        return $this->oversea;
     }
 
     public function toArray(): array

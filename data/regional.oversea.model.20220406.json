@@ -1,0 +1,1212 @@
+[
+    {
+        "label": "亚洲",
+        "value": "亚洲",
+        "fullname": "亚洲",
+        "english": "Asia",
+        "children": [
+            {
+                "label": "日本",
+                "value": "日本",
+                "fullname": "亚洲日本",
+                "english": "Japan"
+            },
+            {
+                "label": "朝鲜",
+                "value": "朝鲜",
+                "fullname": "亚洲朝鲜",
+                "english": "North Korea"
+            },
+            {
+                "label": "韩国",
+                "value": "韩国",
+                "fullname": "亚洲韩国",
+                "english": "South Korea"
+            },
+            {
+                "label": "蒙古",
+                "value": "蒙古",
+                "fullname": "亚洲蒙古",
+                "english": "Mongolia"
+            },
+            {
+                "label": "缅甸",
+                "value": "缅甸",
+                "fullname": "亚洲缅甸",
+                "english": "Myanmar (Burma)"
+            },
+            {
+                "label": "文莱",
+                "value": "文莱",
+                "fullname": "亚洲文莱",
+                "english": "Brunei"
+            },
+            {
+                "label": "柬埔寨",
+                "value": "柬埔寨",
+                "fullname": "亚洲柬埔寨",
+                "english": "Cambodia"
+            },
+            {
+                "label": "东帝汶",
+                "value": "东帝汶",
+                "fullname": "亚洲东帝汶",
+                "english": "Timor-Leste"
+            },
+            {
+                "label": "印度尼西亚",
+                "value": "印度尼西亚",
+                "fullname": "亚洲印度尼西亚",
+                "english": "Indonesia"
+            },
+            {
+                "label": "老挝",
+                "value": "老挝",
+                "fullname": "亚洲老挝",
+                "english": "Laos"
+            },
+            {
+                "label": "马来西亚",
+                "value": "马来西亚",
+                "fullname": "亚洲马来西亚",
+                "english": "Malaysia"
+            },
+            {
+                "label": "菲律宾",
+                "value": "菲律宾",
+                "fullname": "亚洲菲律宾",
+                "english": "Philippines"
+            },
+            {
+                "label": "新加坡",
+                "value": "新加坡",
+                "fullname": "亚洲新加坡",
+                "english": "Singapore"
+            },
+            {
+                "label": "泰国",
+                "value": "泰国",
+                "fullname": "亚洲泰国",
+                "english": "Thailand"
+            },
+            {
+                "label": "越南",
+                "value": "越南",
+                "fullname": "亚洲越南",
+                "english": "Vietnam"
+            },
+            {
+                "label": "孟加拉国",
+                "value": "孟加拉国",
+                "fullname": "亚洲孟加拉国",
+                "english": "Bangladesh"
+            },
+            {
+                "label": "不丹",
+                "value": "不丹",
+                "fullname": "亚洲不丹",
+                "english": "Bhutan"
+            },
+            {
+                "label": "印度",
+                "value": "印度",
+                "fullname": "亚洲印度",
+                "english": "India"
+            },
+            {
+                "label": "马尔代夫",
+                "value": "马尔代夫",
+                "fullname": "亚洲马尔代夫",
+                "english": "Maldives"
+            },
+            {
+                "label": "尼泊尔",
+                "value": "尼泊尔",
+                "fullname": "亚洲尼泊尔",
+                "english": "Nepal"
+            },
+            {
+                "label": "巴基斯坦",
+                "value": "巴基斯坦",
+                "fullname": "亚洲巴基斯坦",
+                "english": "Pakistan"
+            },
+            {
+                "label": "斯里兰卡",
+                "value": "斯里兰卡",
+                "fullname": "亚洲斯里兰卡",
+                "english": "Sri Lanka"
+            },
+            {
+                "label": "哈萨克斯坦",
+                "value": "哈萨克斯坦",
+                "fullname": "亚洲哈萨克斯坦",
+                "english": "Kazakhstan"
+            },
+            {
+                "label": "吉尔吉斯斯坦",
+                "value": "吉尔吉斯斯坦",
+                "fullname": "亚洲吉尔吉斯斯坦",
+                "english": "Kyrgyzstan"
+            },
+            {
+                "label": "土库曼斯坦",
+                "value": "土库曼斯坦",
+                "fullname": "亚洲土库曼斯坦",
+                "english": "Turkmenistan"
+            },
+            {
+                "label": "塔吉克斯坦",
+                "value": "塔吉克斯坦",
+                "fullname": "亚洲塔吉克斯坦",
+                "english": "Tajikistan"
+            },
+            {
+                "label": "乌兹别克斯坦",
+                "value": "乌兹别克斯坦",
+                "fullname": "亚洲乌兹别克斯坦",
+                "english": "Uzbekistan"
+            },
+            {
+                "label": "阿富汗",
+                "value": "阿富汗",
+                "fullname": "亚洲阿富汗",
+                "english": "Afghanistan"
+            },
+            {
+                "label": "亚美尼亚",
+                "value": "亚美尼亚",
+                "fullname": "亚洲亚美尼亚",
+                "english": "Armenia"
+            },
+            {
+                "label": "阿塞拜疆",
+                "value": "阿塞拜疆",
+                "fullname": "亚洲阿塞拜疆",
+                "english": "Azerbaijan"
+            },
+            {
+                "label": "巴林",
+                "value": "巴林",
+                "fullname": "亚洲巴林",
+                "english": "Bahrain"
+            },
+            {
+                "label": "格鲁吉亚",
+                "value": "格鲁吉亚",
+                "fullname": "亚洲格鲁吉亚",
+                "english": "Georgia"
+            },
+            {
+                "label": "伊朗",
+                "value": "伊朗",
+                "fullname": "亚洲伊朗",
+                "english": "Iran"
+            },
+            {
+                "label": "伊拉克",
+                "value": "伊拉克",
+                "fullname": "亚洲伊拉克",
+                "english": "Iraq"
+            },
+            {
+                "label": "以色列",
+                "value": "以色列",
+                "fullname": "亚洲以色列",
+                "english": "Israel"
+            },
+            {
+                "label": "约旦",
+                "value": "约旦",
+                "fullname": "亚洲约旦",
+                "english": "Jordan"
+            },
+            {
+                "label": "科威特",
+                "value": "科威特",
+                "fullname": "亚洲科威特",
+                "english": "Kuwait"
+            },
+            {
+                "label": "黎巴嫩",
+                "value": "黎巴嫩",
+                "fullname": "亚洲黎巴嫩",
+                "english": "Lebanon"
+            },
+            {
+                "label": "阿曼",
+                "value": "阿曼",
+                "fullname": "亚洲阿曼",
+                "english": "Oman"
+            },
+            {
+                "label": "巴勒斯坦",
+                "value": "巴勒斯坦",
+                "fullname": "亚洲巴勒斯坦",
+                "english": "Palestine"
+            },
+            {
+                "label": "卡塔尔",
+                "value": "卡塔尔",
+                "fullname": "亚洲卡塔尔",
+                "english": "Qatar"
+            },
+            {
+                "label": "沙特阿拉伯",
+                "value": "沙特阿拉伯",
+                "fullname": "亚洲沙特阿拉伯",
+                "english": "Saudi Arabia"
+            },
+            {
+                "label": "叙利亚",
+                "value": "叙利亚",
+                "fullname": "亚洲叙利亚",
+                "english": "Syria"
+            },
+            {
+                "label": "土耳其",
+                "value": "土耳其",
+                "fullname": "亚洲土耳其",
+                "english": "Turkey"
+            },
+            {
+                "label": "阿拉伯联合酋长国",
+                "value": "阿拉伯联合酋长国",
+                "fullname": "亚洲阿拉伯联合酋长国",
+                "english": "United Arab Emirates"
+            },
+            {
+                "label": "也门",
+                "value": "也门",
+                "fullname": "亚洲也门",
+                "english": "Yemen"
+            }
+        ]
+    },
+    {
+        "label": "欧洲",
+        "value": "欧洲",
+        "fullname": "欧洲",
+        "english": "Europe",
+        "children": [
+            {
+                "label": "比利时",
+                "value": "比利时",
+                "fullname": "欧洲比利时",
+                "english": "Belgium"
+            },
+            {
+                "label": "法国",
+                "value": "法国",
+                "fullname": "欧洲法国",
+                "english": "France"
+            },
+            {
+                "label": "爱尔兰",
+                "value": "爱尔兰",
+                "fullname": "欧洲爱尔兰",
+                "english": "Ireland"
+            },
+            {
+                "label": "卢森堡",
+                "value": "卢森堡",
+                "fullname": "欧洲卢森堡",
+                "english": "Luxembourg"
+            },
+            {
+                "label": "摩纳哥",
+                "value": "摩纳哥",
+                "fullname": "欧洲摩纳哥",
+                "english": "Monaco"
+            },
+            {
+                "label": "荷兰",
+                "value": "荷兰",
+                "fullname": "欧洲荷兰",
+                "english": "Netherlands"
+            },
+            {
+                "label": "英国",
+                "value": "英国",
+                "fullname": "欧洲英国",
+                "english": "United Kingdom"
+            },
+            {
+                "label": "奥地利",
+                "value": "奥地利",
+                "fullname": "欧洲奥地利",
+                "english": "Austria"
+            },
+            {
+                "label": "德国",
+                "value": "德国",
+                "fullname": "欧洲德国",
+                "english": "Germany"
+            },
+            {
+                "label": "列支敦士登",
+                "value": "列支敦士登",
+                "fullname": "欧洲列支敦士登",
+                "english": "Liechtenstein"
+            },
+            {
+                "label": "瑞士",
+                "value": "瑞士",
+                "fullname": "欧洲瑞士",
+                "english": "Switzerland"
+            },
+            {
+                "label": "丹麦",
+                "value": "丹麦",
+                "fullname": "欧洲丹麦",
+                "english": "Denmark"
+            },
+            {
+                "label": "芬兰",
+                "value": "芬兰",
+                "fullname": "欧洲芬兰",
+                "english": "Finland"
+            },
+            {
+                "label": "冰岛",
+                "value": "冰岛",
+                "fullname": "欧洲冰岛",
+                "english": "Iceland"
+            },
+            {
+                "label": "挪威",
+                "value": "挪威",
+                "fullname": "欧洲挪威",
+                "english": "Norway"
+            },
+            {
+                "label": "瑞典",
+                "value": "瑞典",
+                "fullname": "欧洲瑞典",
+                "english": "Sweden"
+            },
+            {
+                "label": "白俄罗斯",
+                "value": "白俄罗斯",
+                "fullname": "欧洲白俄罗斯",
+                "english": "Belarus"
+            },
+            {
+                "label": "爱沙尼亚",
+                "value": "爱沙尼亚",
+                "fullname": "欧洲爱沙尼亚",
+                "english": "Estonia"
+            },
+            {
+                "label": "拉脱维亚",
+                "value": "拉脱维亚",
+                "fullname": "欧洲拉脱维亚",
+                "english": "Latvia"
+            },
+            {
+                "label": "立陶宛",
+                "value": "立陶宛",
+                "fullname": "欧洲立陶宛",
+                "english": "Lithuania"
+            },
+            {
+                "label": "摩尔多瓦",
+                "value": "摩尔多瓦",
+                "fullname": "欧洲摩尔多瓦",
+                "english": "Moldova"
+            },
+            {
+                "label": "俄罗斯",
+                "value": "俄罗斯",
+                "fullname": "欧洲俄罗斯",
+                "english": "Europe"
+            },
+            {
+                "label": "乌克兰",
+                "value": "乌克兰",
+                "fullname": "欧洲乌克兰",
+                "english": "Ukraine"
+            },
+            {
+                "label": "波兰",
+                "value": "波兰",
+                "fullname": "欧洲波兰",
+                "english": "Poland"
+            },
+            {
+                "label": "斯洛伐克",
+                "value": "斯洛伐克",
+                "fullname": "欧洲斯洛伐克",
+                "english": "Slovakia"
+            },
+            {
+                "label": "匈牙利",
+                "value": "匈牙利",
+                "fullname": "欧洲匈牙利",
+                "english": "Hungary"
+            },
+            {
+                "label": "捷克",
+                "value": "捷克",
+                "fullname": "欧洲捷克",
+                "english": "Czechia"
+            },
+            {
+                "label": "阿尔巴尼亚",
+                "value": "阿尔巴尼亚",
+                "fullname": "欧洲阿尔巴尼亚",
+                "english": "Albania"
+            },
+            {
+                "label": "安道尔",
+                "value": "安道尔",
+                "fullname": "欧洲安道尔",
+                "english": "Andorra"
+            },
+            {
+                "label": "波黑",
+                "value": "波黑",
+                "fullname": "欧洲波黑",
+                "english": "Bosnia and Herzegovina"
+            },
+            {
+                "label": "保加利亚",
+                "value": "保加利亚",
+                "fullname": "欧洲保加利亚",
+                "english": "Bulgaria"
+            },
+            {
+                "label": "克罗地亚",
+                "value": "克罗地亚",
+                "fullname": "欧洲克罗地亚",
+                "english": "Croatia"
+            },
+            {
+                "label": "希腊",
+                "value": "希腊",
+                "fullname": "欧洲希腊",
+                "english": "Greece"
+            },
+            {
+                "label": "意大利",
+                "value": "意大利",
+                "fullname": "欧洲意大利",
+                "english": "Italy"
+            },
+            {
+                "label": "马其顿",
+                "value": "马其顿",
+                "fullname": "欧洲马其顿",
+                "english": "North Macedonia"
+            },
+            {
+                "label": "马耳他",
+                "value": "马耳他",
+                "fullname": "欧洲马耳他",
+                "english": "Malta"
+            },
+            {
+                "label": "黑山",
+                "value": "黑山",
+                "fullname": "欧洲黑山",
+                "english": "Montenegro"
+            },
+            {
+                "label": "葡萄牙",
+                "value": "葡萄牙",
+                "fullname": "欧洲葡萄牙",
+                "english": "Portugal"
+            },
+            {
+                "label": "罗马尼亚",
+                "value": "罗马尼亚",
+                "fullname": "欧洲罗马尼亚",
+                "english": "Romania"
+            },
+            {
+                "label": "圣马力诺",
+                "value": "圣马力诺",
+                "fullname": "欧洲圣马力诺",
+                "english": "San Marino"
+            },
+            {
+                "label": "塞尔维亚",
+                "value": "塞尔维亚",
+                "fullname": "欧洲塞尔维亚",
+                "english": "Serbia"
+            },
+            {
+                "label": "斯洛文尼亚",
+                "value": "斯洛文尼亚",
+                "fullname": "欧洲斯洛文尼亚",
+                "english": "Slovenia"
+            },
+            {
+                "label": "西班牙",
+                "value": "西班牙",
+                "fullname": "欧洲西班牙",
+                "english": "Spain"
+            },
+            {
+                "label": "梵蒂冈",
+                "value": "梵蒂冈",
+                "fullname": "欧洲梵蒂冈",
+                "english": "Vatican"
+            },
+            {
+                "label": "塞浦路斯",
+                "value": "塞浦路斯",
+                "fullname": "欧洲塞浦路斯",
+                "english": "Cyprus"
+            },
+            {
+                "label": "土耳其",
+                "value": "土耳其",
+                "fullname": "欧洲土耳其",
+                "english": "Turkey"
+            }
+        ]
+    },
+    {
+        "label": "非洲",
+        "value": "非洲",
+        "fullname": "非洲",
+        "english": "Africa",
+        "children": [
+            {
+                "label": "阿尔及利亚",
+                "value": "阿尔及利亚",
+                "fullname": "非洲阿尔及利亚",
+                "english": "Algeria"
+            },
+            {
+                "label": "埃及",
+                "value": "埃及",
+                "fullname": "非洲埃及",
+                "english": "Egypt"
+            },
+            {
+                "label": "利比亚",
+                "value": "利比亚",
+                "fullname": "非洲利比亚",
+                "english": "Libya"
+            },
+            {
+                "label": "摩洛哥",
+                "value": "摩洛哥",
+                "fullname": "非洲摩洛哥",
+                "english": "Morocco"
+            },
+            {
+                "label": "苏丹",
+                "value": "苏丹",
+                "fullname": "非洲苏丹",
+                "english": "Sudan"
+            },
+            {
+                "label": "突尼斯",
+                "value": "突尼斯",
+                "fullname": "非洲突尼斯",
+                "english": "Tunisia"
+            },
+            {
+                "label": "南苏丹",
+                "value": "南苏丹",
+                "fullname": "非洲南苏丹",
+                "english": "South Sudan"
+            },
+            {
+                "label": "贝宁",
+                "value": "贝宁",
+                "fullname": "非洲贝宁",
+                "english": "Benin"
+            },
+            {
+                "label": "布基纳法索",
+                "value": "布基纳法索",
+                "fullname": "非洲布基纳法索",
+                "english": "Burkina Faso"
+            },
+            {
+                "label": "乍得",
+                "value": "乍得",
+                "fullname": "非洲乍得",
+                "english": "Chad"
+            },
+            {
+                "label": "科特迪瓦",
+                "value": "科特迪瓦",
+                "fullname": "非洲科特迪瓦",
+                "english": "Côte d'Ivoire"
+            },
+            {
+                "label": "冈比亚",
+                "value": "冈比亚",
+                "fullname": "非洲冈比亚",
+                "english": "The Gambia"
+            },
+            {
+                "label": "加纳",
+                "value": "加纳",
+                "fullname": "非洲加纳",
+                "english": "Ghana"
+            },
+            {
+                "label": "几内亚",
+                "value": "几内亚",
+                "fullname": "非洲几内亚",
+                "english": "Guinea"
+            },
+            {
+                "label": "几内亚比绍",
+                "value": "几内亚比绍",
+                "fullname": "非洲几内亚比绍",
+                "english": "Guinea-Bissau"
+            },
+            {
+                "label": "利比里亚",
+                "value": "利比里亚",
+                "fullname": "非洲利比里亚",
+                "english": "Liberia"
+            },
+            {
+                "label": "马里",
+                "value": "马里",
+                "fullname": "非洲马里",
+                "english": "Mali"
+            },
+            {
+                "label": "尼日尔",
+                "value": "尼日尔",
+                "fullname": "非洲尼日尔",
+                "english": "Niger"
+            },
+            {
+                "label": "毛里塔尼亚",
+                "value": "毛里塔尼亚",
+                "fullname": "非洲毛里塔尼亚",
+                "english": "Mauritania"
+            },
+            {
+                "label": "尼日利亚",
+                "value": "尼日利亚",
+                "fullname": "非洲尼日利亚",
+                "english": "Nigeria"
+            },
+            {
+                "label": "塞内加尔",
+                "value": "塞内加尔",
+                "fullname": "非洲塞内加尔",
+                "english": "Senegal"
+            },
+            {
+                "label": "塞拉利昂",
+                "value": "塞拉利昂",
+                "fullname": "非洲塞拉利昂",
+                "english": "Sierra Leone"
+            },
+            {
+                "label": "多哥",
+                "value": "多哥",
+                "fullname": "非洲多哥",
+                "english": "Togo"
+            },
+            {
+                "label": "佛得角",
+                "value": "佛得角",
+                "fullname": "非洲佛得角",
+                "english": "Cape Verde"
+            },
+            {
+                "label": "喀麦隆",
+                "value": "喀麦隆",
+                "fullname": "非洲喀麦隆",
+                "english": "Cameroon"
+            },
+            {
+                "label": "中非",
+                "value": "中非",
+                "fullname": "非洲中非",
+                "english": "Central Africa"
+            },
+            {
+                "label": "赤道几内亚",
+                "value": "赤道几内亚",
+                "fullname": "非洲赤道几内亚",
+                "english": "Equatorial Guinea"
+            },
+            {
+                "label": "加蓬",
+                "value": "加蓬",
+                "fullname": "非洲加蓬",
+                "english": "Gabon"
+            },
+            {
+                "label": "刚果共和国",
+                "value": "刚果共和国",
+                "fullname": "非洲刚果共和国",
+                "english": "Republic of the Congo"
+            },
+            {
+                "label": "刚果民主共和国",
+                "value": "刚果民主共和国",
+                "fullname": "非洲刚果民主共和国",
+                "english": "Democratic Republic of the Congo"
+            },
+            {
+                "label": "圣多美普林西比",
+                "value": "圣多美普林西比",
+                "fullname": "非洲圣多美普林西比",
+                "english": "São Tomé and Príncipe"
+            },
+            {
+                "label": "安哥拉",
+                "value": "安哥拉",
+                "fullname": "非洲安哥拉",
+                "english": "Angola"
+            },
+            {
+                "label": "博茨瓦纳",
+                "value": "博茨瓦纳",
+                "fullname": "非洲博茨瓦纳",
+                "english": "Botswana"
+            },
+            {
+                "label": "科摩罗",
+                "value": "科摩罗",
+                "fullname": "非洲科摩罗",
+                "english": "Comoros"
+            },
+            {
+                "label": "莱索托",
+                "value": "莱索托",
+                "fullname": "非洲莱索托",
+                "english": "Lesotho"
+            },
+            {
+                "label": "马达加斯加",
+                "value": "马达加斯加",
+                "fullname": "非洲马达加斯加",
+                "english": "Madagascar"
+            },
+            {
+                "label": "马拉维",
+                "value": "马拉维",
+                "fullname": "非洲马拉维",
+                "english": "Malawi"
+            },
+            {
+                "label": "毛里求斯",
+                "value": "毛里求斯",
+                "fullname": "非洲毛里求斯",
+                "english": "Mauritius"
+            },
+            {
+                "label": "莫桑比克",
+                "value": "莫桑比克",
+                "fullname": "非洲莫桑比克",
+                "english": "Mozambique"
+            },
+            {
+                "label": "纳米比亚",
+                "value": "纳米比亚",
+                "fullname": "非洲纳米比亚",
+                "english": "Namibia"
+            },
+            {
+                "label": "斯威士兰",
+                "value": "斯威士兰",
+                "fullname": "非洲斯威士兰",
+                "english": "Eswatini"
+            },
+            {
+                "label": "南非",
+                "value": "南非",
+                "fullname": "非洲南非",
+                "english": "South Africa"
+            },
+            {
+                "label": "赞比亚",
+                "value": "赞比亚",
+                "fullname": "非洲赞比亚",
+                "english": "Zambia"
+            },
+            {
+                "label": "津巴布韦",
+                "value": "津巴布韦",
+                "fullname": "非洲津巴布韦",
+                "english": "Zimbabwe"
+            },
+            {
+                "label": "布隆迪",
+                "value": "布隆迪",
+                "fullname": "非洲布隆迪",
+                "english": "Burundi"
+            },
+            {
+                "label": "吉布提",
+                "value": "吉布提",
+                "fullname": "非洲吉布提",
+                "english": "Djibouti"
+            },
+            {
+                "label": "厄立特里亚",
+                "value": "厄立特里亚",
+                "fullname": "非洲厄立特里亚",
+                "english": "Eritrea"
+            },
+            {
+                "label": "埃塞俄比亚",
+                "value": "埃塞俄比亚",
+                "fullname": "非洲埃塞俄比亚",
+                "english": "Ethiopia"
+            },
+            {
+                "label": "肯尼亚",
+                "value": "肯尼亚",
+                "fullname": "非洲肯尼亚",
+                "english": "Kenya"
+            },
+            {
+                "label": "卢旺达",
+                "value": "卢旺达",
+                "fullname": "非洲卢旺达",
+                "english": "Rwanda"
+            },
+            {
+                "label": "塞舌尔",
+                "value": "塞舌尔",
+                "fullname": "非洲塞舌尔",
+                "english": "Seychelles"
+            },
+            {
+                "label": "索马里",
+                "value": "索马里",
+                "fullname": "非洲索马里",
+                "english": "Somalia"
+            },
+            {
+                "label": "坦桑尼亚",
+                "value": "坦桑尼亚",
+                "fullname": "非洲坦桑尼亚",
+                "english": "Tanzania"
+            },
+            {
+                "label": "乌干达",
+                "value": "乌干达",
+                "fullname": "非洲乌干达",
+                "english": "Uganda"
+            }
+        ]
+    },
+    {
+        "label": "大洋洲",
+        "value": "大洋洲",
+        "fullname": "大洋洲",
+        "english": "Oceania",
+        "children": [
+            {
+                "label": "澳大利亚",
+                "value": "澳大利亚",
+                "fullname": "大洋洲澳大利亚",
+                "english": "Australia"
+            },
+            {
+                "label": "斐济",
+                "value": "斐济",
+                "fullname": "大洋洲斐济",
+                "english": "Fiji"
+            },
+            {
+                "label": "基里巴斯",
+                "value": "基里巴斯",
+                "fullname": "大洋洲基里巴斯",
+                "english": "Kiribati"
+            },
+            {
+                "label": "马绍尔群岛",
+                "value": "马绍尔群岛",
+                "fullname": "大洋洲马绍尔群岛",
+                "english": "Marshall Islands"
+            },
+            {
+                "label": "密克罗尼西亚联邦",
+                "value": "密克罗尼西亚联邦",
+                "fullname": "大洋洲密克罗尼西亚联邦",
+                "english": "Federated States of Micronesia"
+            },
+            {
+                "label": "瑙鲁",
+                "value": "瑙鲁",
+                "fullname": "大洋洲瑙鲁",
+                "english": "Nauru"
+            },
+            {
+                "label": "新西兰",
+                "value": "新西兰",
+                "fullname": "大洋洲新西兰",
+                "english": "New Zealand"
+            },
+            {
+                "label": "帕劳",
+                "value": "帕劳",
+                "fullname": "大洋洲帕劳",
+                "english": "Palau"
+            },
+            {
+                "label": "巴布亚新几内亚",
+                "value": "巴布亚新几内亚",
+                "fullname": "大洋洲巴布亚新几内亚",
+                "english": "Papua New Guinea"
+            },
+            {
+                "label": "萨摩亚",
+                "value": "萨摩亚",
+                "fullname": "大洋洲萨摩亚",
+                "english": "Samoa"
+            },
+            {
+                "label": "所罗门群岛",
+                "value": "所罗门群岛",
+                "fullname": "大洋洲所罗门群岛",
+                "english": "Solomon Islands"
+            },
+            {
+                "label": "汤加",
+                "value": "汤加",
+                "fullname": "大洋洲汤加",
+                "english": "Tonga"
+            },
+            {
+                "label": "图瓦卢",
+                "value": "图瓦卢",
+                "fullname": "大洋洲图瓦卢",
+                "english": "Tuvalu"
+            },
+            {
+                "label": "瓦努阿图",
+                "value": "瓦努阿图",
+                "fullname": "大洋洲瓦努阿图",
+                "english": "Vanuatu"
+            }
+        ]
+    },
+    {
+        "label": "美洲",
+        "value": "美洲",
+        "fullname": "美洲",
+        "english": "Americas",
+        "children": [
+            {
+                "label": "加拿大",
+                "value": "加拿大",
+                "fullname": "美洲加拿大",
+                "english": "Canada"
+            },
+            {
+                "label": "墨西哥",
+                "value": "墨西哥",
+                "fullname": "美洲墨西哥",
+                "english": "Mexico"
+            },
+            {
+                "label": "美国",
+                "value": "美国",
+                "fullname": "美洲美国",
+                "english": "United States"
+            },
+            {
+                "label": "伯利兹",
+                "value": "伯利兹",
+                "fullname": "美洲伯利兹",
+                "english": "Belize"
+            },
+            {
+                "label": "哥斯达黎加",
+                "value": "哥斯达黎加",
+                "fullname": "美洲哥斯达黎加",
+                "english": "Costa Rica"
+            },
+            {
+                "label": "萨尔瓦多",
+                "value": "萨尔瓦多",
+                "fullname": "美洲萨尔瓦多",
+                "english": "El Salvador"
+            },
+            {
+                "label": "危地马拉",
+                "value": "危地马拉",
+                "fullname": "美洲危地马拉",
+                "english": "Guatemala"
+            },
+            {
+                "label": "洪都拉斯",
+                "value": "洪都拉斯",
+                "fullname": "美洲洪都拉斯",
+                "english": "Honduras"
+            },
+            {
+                "label": "尼加拉瓜",
+                "value": "尼加拉瓜",
+                "fullname": "美洲尼加拉瓜",
+                "english": "Nicaragua"
+            },
+            {
+                "label": "巴拿马",
+                "value": "巴拿马",
+                "fullname": "美洲巴拿马",
+                "english": "Panama"
+            },
+            {
+                "label": "安提瓜和巴布达",
+                "value": "安提瓜和巴布达",
+                "fullname": "美洲安提瓜和巴布达",
+                "english": "Antigua and Barbuda"
+            },
+            {
+                "label": "巴哈马",
+                "value": "巴哈马",
+                "fullname": "美洲巴哈马",
+                "english": "The Bahamas"
+            },
+            {
+                "label": "巴巴多斯",
+                "value": "巴巴多斯",
+                "fullname": "美洲巴巴多斯",
+                "english": "Barbados"
+            },
+            {
+                "label": "古巴",
+                "value": "古巴",
+                "fullname": "美洲古巴",
+                "english": "Cuba"
+            },
+            {
+                "label": "多米尼克",
+                "value": "多米尼克",
+                "fullname": "美洲多米尼克",
+                "english": "Dominica"
+            },
+            {
+                "label": "多米尼加共和国",
+                "value": "多米尼加共和国",
+                "fullname": "美洲多米尼加共和国",
+                "english": "Dominican Republic"
+            },
+            {
+                "label": "格林纳达",
+                "value": "格林纳达",
+                "fullname": "美洲格林纳达",
+                "english": "Grenada"
+            },
+            {
+                "label": "海地",
+                "value": "海地",
+                "fullname": "美洲海地",
+                "english": "Haiti"
+            },
+            {
+                "label": "牙买加",
+                "value": "牙买加",
+                "fullname": "美洲牙买加",
+                "english": "Jamaica"
+            },
+            {
+                "label": "圣克里斯多福与尼维斯",
+                "value": "圣克里斯多福与尼维斯",
+                "fullname": "美洲圣克里斯多福与尼维斯",
+                "english": "Saint Kitts and Nevis"
+            },
+            {
+                "label": "圣卢西亚",
+                "value": "圣卢西亚",
+                "fullname": "美洲圣卢西亚",
+                "english": "Saint Lucia"
+            },
+            {
+                "label": "圣文森特和格林纳丁斯",
+                "value": "圣文森特和格林纳丁斯",
+                "fullname": "美洲圣文森特和格林纳丁斯",
+                "english": "Saint Vincent and the Grenadines"
+            },
+            {
+                "label": "特立尼达和多巴哥",
+                "value": "特立尼达和多巴哥",
+                "fullname": "美洲特立尼达和多巴哥",
+                "english": "Trinidad and Tobago"
+            },
+            {
+                "label": "阿根廷",
+                "value": "阿根廷",
+                "fullname": "美洲阿根廷",
+                "english": "Argentina"
+            },
+            {
+                "label": "玻利维亚",
+                "value": "玻利维亚",
+                "fullname": "美洲玻利维亚",
+                "english": "Bolivia"
+            },
+            {
+                "label": "巴西",
+                "value": "巴西",
+                "fullname": "美洲巴西",
+                "english": "Brazil"
+            },
+            {
+                "label": "智利",
+                "value": "智利",
+                "fullname": "美洲智利",
+                "english": "Chile"
+            },
+            {
+                "label": "哥伦比亚",
+                "value": "哥伦比亚",
+                "fullname": "美洲哥伦比亚",
+                "english": "Colombia"
+            },
+            {
+                "label": "厄瓜多尔",
+                "value": "厄瓜多尔",
+                "fullname": "美洲厄瓜多尔",
+                "english": "Ecuador"
+            },
+            {
+                "label": "圭亚那",
+                "value": "圭亚那",
+                "fullname": "美洲圭亚那",
+                "english": "Guyana"
+            },
+            {
+                "label": "秘鲁",
+                "value": "秘鲁",
+                "fullname": "美洲秘鲁",
+                "english": "Peru"
+            },
+            {
+                "label": "巴拉圭",
+                "value": "巴拉圭",
+                "fullname": "美洲巴拉圭",
+                "english": "Paraguay"
+            },
+            {
+                "label": "苏里南",
+                "value": "苏里南",
+                "fullname": "美洲苏里南",
+                "english": "Suriname"
+            },
+            {
+                "label": "乌拉圭",
+                "value": "乌拉圭",
+                "fullname": "美洲乌拉圭",
+                "english": "Uruguay"
+            },
+            {
+                "label": "委内瑞拉",
+                "value": "委内瑞拉",
+                "fullname": "美洲委内瑞拉",
+                "english": "Venezuela"
+            }
+        ]
+    }
+]

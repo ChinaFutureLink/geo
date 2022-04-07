@@ -3,15 +3,11 @@
 namespace Fu\Geo\Data\Regional;
 
 use Closure;
+use Exception;
 use Fu\Geo\Service\Address\AddressLocationService;
 
 class Item
 {
-    /**
-     * @var string
-     */
-    protected string $label;
-
     /**
      * @var string
      */
@@ -41,19 +37,62 @@ class Item
     protected ?Closure $callback = null;
 
     /**
+     * @var bool
+     */
+    protected bool $original = false;
+
+    /**
+     * @var string
+     */
+    protected string $language = 'zh';
+
+    public static function getInstanceFromJson(string $filepath): Item
+    {
+        $content = file_get_contents($filepath);
+        if (!$content) {
+            throw new Exception("The filepath is invalid: `{$filepath}`", 4000);
+        }
+        $json = json_decode($content, true);
+        if (json_last_error()) {
+            throw new Exception(json_last_error_msg(), 4001);
+        }
+        $instance = new static();
+        $instance->setChildren($instance->buildByJson($json));
+        return $instance;
+    }
+
+    /**
+     * @param array $json
+     * @param array $children
+     * @return Item[]
+     */
+    protected function buildByJson(array $json, array &$children = []): array
+    {
+        foreach ($json as $idx => $doc) {
+            $item = new Item();
+            $item->setValue($doc['value']);
+            if (isset($doc['english'])) {
+                $item->setEnglish($doc['english']);
+            }
+            if (isset($doc['children'])) {
+                $children[$idx] = [];
+                $item->setChildren($this->buildByJson($doc['children'], $children[$idx]));
+            }
+            $children[$idx] = $item;
+        }
+        return $children;
+    }
+
+    /**
      * @return string
      */
     public function getLabel(): string
     {
-        return $this->label;
-    }
-
-    /**
-     * @param string $label
-     */
-    public function setLabel(string $label): void
-    {
-        $this->label = $label;
+        if ($this->language == 'en') {
+            return $this->english;
+        } else {
+            return $this->value;
+        }
     }
 
     /**
@@ -132,30 +171,69 @@ class Item
     }
 
     /**
+     * @param bool $original
+     * @return $this
+     */
+    public function original(bool $original): Item
+    {
+        $this->original = $original;
+        return $this;
+    }
+
+    /**
+     * @param string $language
+     * @return $this
+     */
+    public function language(string $language): Item
+    {
+        $this->language = $language;
+        return $this;
+    }
+
+    /**
      * @param Item[] $children
      * @param array|null $array
+     * @param string|null $parent
      * @return array
      */
-    public function toArray(?array $children = null, ?array &$array = [], ?string $parent = ""): array
+    public function toArray(?array $children = null, ?array &$array = null, ?string $parent = ""): array
     {
         if (!$children) {
             $children = $this->getChildren();
         }
         if ($array === null) {
-            $array = [];
-        }
-        foreach ($children as $idx => $child) {
-            $grandson = $child->getChildren();
-            $array[$idx] = [];
-            $array[$idx]['label'] = $child->getLabel();
-            $array[$idx]['value'] = $child->getValue();
-            $array[$idx]['fullname'] = $parent.$child->getValue();
-            if ($this->callback) {
-                $callback = $this->callback;
-                $callback($array[$idx]);
+            $array = [
+                'label' => $this->language == 'en' ? $this->getEnglish() : $this->getValue(),
+                'value' => $this->getValue(),
+                'children' => []
+            ];
+            if ($this->original === false) {
+                $array['fullname'] = $this->getFullname();
+                $array['english']  = $this->getEnglish();
             }
-            if ($grandson) {
-                $array[$idx]['children'] = $this->toArray($grandson, $array[$idx]['children'], $parent.$child->getValue());
+            $array['children'] = $this->toArray($children, $array['children'], $parent);
+        } else {
+            foreach ($children as $idx => $child) {
+                $grandson = $child->getChildren();
+                $array[$idx] = [];
+                $array[$idx]['label'] = $this->language == 'en' ? $child->getEnglish() : $child->getValue();
+                $array[$idx]['value'] = $child->getValue();
+                if ($this->original === false) {
+                    $array[$idx]['fullname'] = $parent . $child->getValue();
+                    $array[$idx]['english'] = $child->getEnglish();
+                }
+                if ($this->callback) {
+                    $callback = $this->callback;
+                    $callback($array[$idx]);
+                }
+                if ($grandson) {
+                    $array[$idx]['children'] = [];
+                    $array[$idx]['children'] = $this->toArray(
+                        $grandson,
+                        $array[$idx]['children'],
+                        $parent . $child->getValue()
+                    );
+                }
             }
         }
         return $array;

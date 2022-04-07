@@ -102,29 +102,26 @@ class District
 
     /**
      * 输出在线regional格式的数据
-     * @return Regional\District
+     * @return Regional\Item
      * @throws Exception
      * @example ./data/regional_en.json
      * @example ./data/regional_zh.json
      */
-    public function toRegional(): Regional\District
+    public function toRegional(): Regional\Item
     {
         $lv1s = [];
         foreach ($this->provinces as $province) {
             $lv1 = new Regional\Item();
-            $lv1->setLabel($province->getName());
             $lv1->setValue($province->getName());
             $province->setChildren($this->cities);
             $lv2s = [];
             foreach ($province->getChildren() as $city) {
                 $lv2 = new Regional\Item();
-                $lv2->setLabel($city->getName());
                 $lv2->setValue($city->getName());
                 $city->setChildren($this->regions);
                 $lv3s = [];
                 foreach ($city->getChildren() as $region) {
                     $lv3 = new Regional\Item();
-                    $lv3->setLabel($region->getName());
                     $lv3->setValue($region->getName());
                     $lv3s[] = $lv3;
                 }
@@ -135,13 +132,10 @@ class District
             $lv1s[] = $lv1;
         }
         $item = new Regional\Item();
-        $item->setLabel('中国');
         $item->setValue('中国');
+        $item->setEnglish('China');
         $item->setChildren($lv1s);
-
-        $district = Regional\District::getInstanceFromJson('./data/regional_zh.json');
-        $district->setChina($item);
-        return $district;
+        return $item;
     }
 
     /**
