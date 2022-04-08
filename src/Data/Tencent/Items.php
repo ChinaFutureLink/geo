@@ -1,4 +1,5 @@
 <?php
+
 namespace Fu\Geo\Data\Tencent;
 
 use Iterator;

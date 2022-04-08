@@ -23,7 +23,7 @@ class LocationResponse extends ServiceResponse implements LocationResponsable
     {
         $this->locationName = $this->trim(
             $json['results'][0]['address_components'][0]['long_name']
-                ??$json['results'][0]['formatted_address']
+                ?? $json['results'][0]['formatted_address']
         );
     }
 
@@ -48,7 +48,7 @@ class LocationResponse extends ServiceResponse implements LocationResponsable
         $names = explode(' ', explode(',', $name)[0]);
         return implode(
             ' ',
-            array_filter($names, function($val) use ($replace) {
+            array_filter($names, function ($val) use ($replace) {
                 return !in_array($val, $replace);
             })
         );

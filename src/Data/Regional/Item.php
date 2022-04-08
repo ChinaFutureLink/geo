@@ -119,7 +119,7 @@ class Item
      */
     public function getChildren(): array
     {
-        return $this->children??[];
+        return $this->children ?? [];
     }
 
     /**
