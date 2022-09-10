@@ -24,7 +24,7 @@ abstract class AliLocationService
             'verify' => true,
             'debug' => false,
             'http_errors' => false,
-            'handler' => HttpStack::getStack()
+//            'handler' => HttpStack::getStack()
         ]);
     }
 

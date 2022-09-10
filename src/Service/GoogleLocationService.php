@@ -33,7 +33,7 @@ abstract class GoogleLocationService
             'verify' => true,
             'debug' => false,
             'http_errors' => false,
-            'handler' => HttpStack::getStack()
+//            'handler' => HttpStack::getStack()
         ]);
     }
 
