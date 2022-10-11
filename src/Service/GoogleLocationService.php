@@ -28,7 +28,7 @@ abstract class GoogleLocationService
                 'Content-Type' => "application/json",
                 'Referer'      => 'https://stage.chinafuturelink.org'
             ],
-            'timeout' => 30.0,
+            'timeout' => 5.0,
             'verify' => true,
             'debug' => false,
             'http_errors' => false,

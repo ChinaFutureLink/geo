@@ -5,7 +5,6 @@ namespace Fu\Geo\Service\Ip;
 use baohan\Collection\Collection;
 use Fu\Geo\Area;
 use Fu\Geo\AreaResponsable;
-use Fu\Geo\Responsable;
 use Fu\Geo\Service\ServiceResponse;
 use Fu\Geo\Service\TencentLocationService;
 

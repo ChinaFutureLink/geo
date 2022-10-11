@@ -16,7 +16,7 @@ abstract class AliLocationService
         $this->client = new Client([
             'base_uri' => 'https://mobapi.market.alicloudapi.com',
             'headers' => ['Authorization' => 'APPCODE ' . $key],
-            'timeout' => 30.0,
+            'timeout' => 5.0,
             'verify' => true,
             'debug' => false,
             'http_errors' => false,
