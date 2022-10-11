@@ -2,7 +2,6 @@
 
 namespace Fu\Geo\Service;
 
-use Fu\Geo\HttpStack;
 use GuzzleHttp\Client;
 
 /**
@@ -33,7 +32,6 @@ abstract class GoogleLocationService
             'verify' => true,
             'debug' => false,
             'http_errors' => false,
-//            'handler' => HttpStack::getStack()
         ]);
     }
 

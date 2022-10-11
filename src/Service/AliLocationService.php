@@ -2,10 +2,6 @@
 
 namespace Fu\Geo\Service;
 
-use baohan\Collection\Collection;
-use Fu\Geo\Area;
-use Fu\Geo\HttpStack;
-use Fu\Geo\Service\Phone\PhoneLocationService;
 use GuzzleHttp\Client;
 
 abstract class AliLocationService
@@ -24,7 +20,6 @@ abstract class AliLocationService
             'verify' => true,
             'debug' => false,
             'http_errors' => false,
-//            'handler' => HttpStack::getStack()
         ]);
     }
 

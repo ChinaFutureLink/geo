@@ -76,4 +76,29 @@ class IpLocationTest extends TestCase
         $this->assertEquals(false, $service->getLocation('172.31.0.1')->isOk());
         $this->assertEquals(false, $service->getLocation('192.168.0.1')->isOk());
     }
+
+    /**
+     * 内网IP地点查询
+     */
+    public function testIpGeoLocation()
+    {
+        $service = new \Fu\Geo\Service\Ip\IpGeoLocationService();
+
+        $chinaIp = "110.191.253.233"; // 乐山市
+        $res = $service->getLocation($chinaIp);
+        $this->assertEquals('中国', $res->getArea()->nation);
+        $this->assertEquals('四川省', $res->getArea()->lv1);
+        $this->assertEquals('乐山', $res->getArea()->lv2);
+        $this->assertEquals('', $res->getArea()->lv3);
+
+        $unknownIp = "254.255.253.233"; // 未知IP地址
+        $this->assertEquals(false, $service->getLocation($unknownIp)->isOk());
+
+        $overseaIp = "31.13.94.7"; // 阿根廷
+        $res = $service->getLocation($overseaIp);
+        $this->assertEquals('海外', $res->getArea()->nation);
+        $this->assertEquals('美洲', $res->getArea()->lv1);
+        $this->assertEquals('阿根廷', $res->getArea()->lv2);
+        $this->assertEquals('', $res->getArea()->lv3);
+    }
 }

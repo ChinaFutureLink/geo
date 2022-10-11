@@ -5,7 +5,6 @@ namespace Fu\Geo\Service\Phone;
 use baohan\Collection\Collection;
 use Fu\Geo\Area;
 use Fu\Geo\AreaResponsable;
-use Fu\Geo\Responsable;
 use Fu\Geo\Service\AliLocationService;
 use Fu\Geo\Service\ServiceResponse;
 
@@ -26,7 +25,7 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
         if ($areaCode == '86') {
             return $this->getLocationByChinesePhoneNumber($phone);
         } elseif (array_key_exists($areaCode, $countries)) {
-            return $this->getCustomerLocation($countries[$areaCode]);
+            return $this->getExceptionLocation($countries[$areaCode]);
         } else {
             return $this->getLocationByOverseaPhoneNumber($areaCode);
         }
@@ -50,7 +49,11 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
         return $response;
     }
 
-    public function getCustomerLocation($country)
+    /**
+     * @param $country
+     * @return ServiceResponse
+     */
+    public function getExceptionLocation($country): ServiceResponse
     {
         $response = new ServiceResponse();
         $response->ok = true;
