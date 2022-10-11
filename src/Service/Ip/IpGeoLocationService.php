@@ -28,7 +28,7 @@ class IpGeoLocationService implements IpLocationService
             return $response;
         }
         try {
-            $reader = new Reader('./GeoLite2-City.mmdb', ['en', 'zh-CN']);
+            $reader = new Reader(dirname(__FILE__).'/GeoLite2-City.mmdb', ['en', 'zh-CN']);
             $result = $reader->city($ip);
         } catch (AddressNotFoundException $e) {
             return $response;
