@@ -3,6 +3,7 @@
 namespace Fu\Geo\Service\Phone;
 
 use baohan\Collection\Collection;
+use Fu\Geo\AppLogger;
 use Fu\Geo\Area;
 use Fu\Geo\AreaResponsable;
 use Fu\Geo\Service\AliLocationService;
@@ -88,6 +89,7 @@ class AliPhoneLocationService extends AliLocationService implements PhoneLocatio
         $response = new ServiceResponse();
         $res = $this->getClient()->post('/gsd?mobile=' . $phone, []);
         if ($res->getStatusCode() != 200) {
+            AppLogger::getLog()->error("phone location api error: ", $res->getHeader('x-ca-error-message'));
             return $response;
         }
         $response->raw = (string) $res->getBody();
