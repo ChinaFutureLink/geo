@@ -33,22 +33,22 @@ class IpGeoLocationService implements IpLocationService
         } catch (AddressNotFoundException $e) {
             return $response;
         }
-//        var_dump($result->city->names['zh-CN']);
+//        var_dump($result->city->names);
 //        var_dump($result->subdivisions[0]->names['zh-CN']);
 //        var_dump($result->country->names['zh-CN']);
 //        var_dump($result->continent->names['zh-CN']);
-
-        $nation = (string) $result->country->names['zh-CN'] ?? $result->country->names['en'];
+//        var_dump($result);
+        $nation = (string) ($result->country->names['zh-CN'] ?? $result->country->names['en'] ?? '');
         if ($nation === '中国') {
             $response->area->nation = $nation;
-            $response->area->lv1 = (string) $result->subdivisions[0]->names['zh-CN'] ?? $result->subdivisions[0]->names['en'];
-            $response->area->lv2 = (string) $result->city->names['zh-CN'] ?? $result->city->names['en'];
+            $response->area->lv1 = (string) ($result->subdivisions[0]->names['zh-CN'] ?? $result->subdivisions[0]->names['en'] ?? '');
+            $response->area->lv2 = (string) ($result->city->names['zh-CN'] ?? $result->city->names['en'] ?? '');
             $response->area->lv3 = "";
         } else {
             $response->area->nation = "海外";
             $response->area->lv1 = Area::getContinent($nation);
             $response->area->lv2 = $nation;
-            $response->area->lv3 = (string) $result->city->names['zh-CN'];
+            $response->area->lv3 = (string) ($result->city->names['zh-CN'] ?? $result->city->names['en'] ?? '');
         }
         $response->ok = true;
         return $response;

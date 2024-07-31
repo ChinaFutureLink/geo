@@ -1,0 +1,6 @@
+.circleci
+.phpunit.cache
+coverage
+vendor
+tests
+.git

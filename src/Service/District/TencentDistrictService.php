@@ -14,7 +14,7 @@ class TencentDistrictService extends TencentLocationService implements DistrictS
 {
     /**
      * 查询最新中国行政区
-     * https://apis.map.qq.com/ws/district/v1/list?key=QAQBZ-W6WC4-7GXUY-XF4RA-GXRW7-Y2BRX
+     * https://apis.map.qq.com/ws/district/v1/list?key=KEY
      * @example ./data/tencent.china.regions.json
      * @return Responsable
      */
