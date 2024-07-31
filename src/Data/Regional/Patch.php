@@ -20,6 +20,7 @@ class Patch
 
     private function match($haystack, $needle): bool
     {
+        if (!$needle) return false;
         return mb_strpos($haystack, $needle, 0, 'UTF-8') !== false;
     }
 
