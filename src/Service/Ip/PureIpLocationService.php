@@ -106,8 +106,8 @@ class PureIpLocationService implements IpLocationService
             $response->area->lv3 = $area[3];
         } else {
             $response->area->nation = "海外";
-            $response->area->lv1 = Area::getContinent($address['nation']);
-            $response->area->lv2 = $address['nation'];
+            $response->area->lv1 = Area::getContinent($address['country']);
+            $response->area->lv2 = $address['country'];
             $response->area->lv3 = $address['city'];
         }
         $response->ok = true;
