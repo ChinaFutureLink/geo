@@ -79,7 +79,10 @@ class TencentIpLocationService extends TencentLocationService implements IpLocat
      */
     protected function invalid(string $ip): bool
     {
-        $pattern = '/(^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.)/';
-        return preg_match($pattern, $ip) > 0;
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            $pattern = '/(^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.)/';
+            return preg_match($pattern, $ip) > 0;
+        }
+        return true;
     }
 }
