@@ -97,7 +97,7 @@ class PureIpLocationService implements IpLocationService
                 $address['country'],
                 $address['province'],
                 $address['city'],
-                $address['districts']
+                $address['districts'] == '未知' ? '' : $address['districts']
             ];
             $this->patch->fix($area, $this->item);
             $response->area->nation = $area[0];
